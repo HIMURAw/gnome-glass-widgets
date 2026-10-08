@@ -14,6 +14,7 @@ import {CELL, GAP, SIZES} from './widget.js';
 import {widgetTypes} from './widgets/index.js';
 
 const MARGIN = 28;
+const TOP = 64;
 const PITCH = CELL + GAP;
 const DIM_OPACITY = 165; // the content's; the glass stays whole so nothing behind shows through
 const DESATURATE = 0.8;
@@ -100,6 +101,7 @@ export default class GlassWidgetsExtension extends Extension {
         this._signals.forEach(([obj, id]) => obj.disconnect(id));
         this._signals = [];
         this._destroyWidgets();
+        this._settled = null;
         this._menuManager = null;
         this._layer.destroy();
         this._layer = null;
@@ -113,17 +115,23 @@ export default class GlassWidgetsExtension extends Extension {
 
     // ---------- Layout ----------
 
-    // Held against the top right corner: widgets live on the right (desktop icons fill
-    // from the left), and stay against the edge whatever the screen's width.
-    _grid() {
+    // The whole screen's cells, centred with equal margins either side, and low enough at
+    // the top to clear Dynamic Island (6 px down, 38 px tall) and its bubbles.
+    _screenGrid() {
         const area = Main.layoutManager.getWorkAreaForMonitor(Main.layoutManager.primaryIndex);
         const cols = Math.max(2, Math.floor((area.width - 2 * MARGIN + GAP) / PITCH));
         return {
-            x: area.x + area.width - MARGIN - (cols * PITCH - GAP),
-            y: area.y + MARGIN,
+            x: area.x + Math.round((area.width - (cols * PITCH - GAP)) / 2),
+            y: area.y + TOP,
             cols,
-            rows: Math.max(2, Math.floor((area.height - 2 * MARGIN + GAP) / PITCH)),
+            rows: Math.max(2, Math.floor((area.height - TOP - MARGIN + GAP) / PITCH)),
         };
+    }
+
+    // The grid the widgets were last laid out on (see _build), so dragging and adding
+    // use the same cells as what is on screen.
+    _grid() {
+        return this._settled ?? this._screenGrid();
     }
 
     _load() {
@@ -213,18 +221,30 @@ export default class GlassWidgetsExtension extends Extension {
 
     _build() {
         this._destroyWidgets();
-        const grid = this._grid();
+        const grid = this._screenGrid();
         const specs = this._load();
-        // On a smaller screen (another monitor, a different scale, the moment of login) the
-        // whole arrangement moves left/up together instead of each widget looking for a gap.
-        // Only what is shown moves; the saved layout stays as it was.
-        const right = Math.max(0, ...specs.map(s => s.col + SIZES[s.size][0]));
-        const bottom = Math.max(0, ...specs.map(s => s.row + SIZES[s.size][1]));
-        const dx = Math.max(0, right - grid.cols);
-        const dy = Math.max(0, bottom - grid.rows);
+        // The arrangement as a block, centred across the screen; it keeps its shape whatever
+        // the width (another monitor, a different scale, the moment of login). Only what is
+        // shown moves; the saved layout stays as it was until the next edit.
+        if (specs.length) {
+            const left = Math.min(...specs.map(s => s.col));
+            const right = Math.max(...specs.map(s => s.col + SIZES[s.size][0]));
+            const bottom = Math.max(...specs.map(s => s.row + SIZES[s.size][1]));
+            const width = right - left;
+            if (width <= grid.cols) {
+                // Same parity on both sides of the block, so it sits exactly in the middle.
+                if ((grid.cols - width) % 2) {
+                    grid.cols -= 1;
+                    grid.x += Math.round(PITCH / 2);
+                }
+                const dx = (grid.cols - width) / 2 - left;
+                specs.forEach(spec => (spec.col += dx));
+            }
+            const dy = Math.max(0, bottom - grid.rows);
+            specs.forEach(spec => (spec.row -= dy));
+        }
+        this._settled = grid;
         for (const spec of specs) {
-            spec.col -= dx;
-            spec.row -= dy;
             spec.id ??= newId();
             if (!this._fits(spec, grid, spec.id)) {
                 const free = this._nearestFree(spec, grid, spec.id);
