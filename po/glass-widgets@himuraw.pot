@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glass Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-08 17:43+0300\n"
+"POT-Creation-Date: 2026-10-08 17:49+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,67 +205,71 @@ msgstr ""
 msgid "Open Harvis on your phone"
 msgstr ""
 
-#: widgets/connections.js:40
+#: widgets/connections.js:41
 msgid "Beside you"
 msgstr ""
 
-#: widgets/connections.js:40
+#: widgets/connections.js:41
 msgid "Connected"
 msgstr ""
 
-#: widgets/connections.js:40
+#: widgets/connections.js:41
 #, javascript-format
 msgid "Last seen %s"
 msgstr ""
 
-#: widgets/connections.js:65
+#: widgets/connections.js:66
 msgid "No notifications"
 msgstr ""
 
-#: widgets/connections.js:90 widgets/index.js:41
+#: widgets/connections.js:91 widgets/index.js:41
 msgid "Mail"
 msgstr ""
 
-#: widgets/connections.js:96
+#: widgets/connections.js:97
 msgid "unread"
 msgstr ""
 
-#: widgets/connections.js:97
+#: widgets/connections.js:98
 #, javascript-format
 msgid "%d important"
 msgstr ""
 
-#: widgets/connections.js:97
+#: widgets/connections.js:98
 msgid "Nothing important"
 msgstr ""
 
-#: widgets/connections.js:106
+#: widgets/connections.js:107
 msgid "Inbox zero"
 msgstr ""
 
-#: widgets/connections.js:183 widgets/connections.js:196
-#: widgets/connections.js:199 widgets/index.js:37
+#: widgets/connections.js:184 widgets/connections.js:199
+#: widgets/connections.js:202 widgets/index.js:37
 msgid "Network"
 msgstr ""
 
-#: widgets/connections.js:183
+#: widgets/connections.js:184
 msgid "Offline"
 msgstr ""
 
-#: widgets/connections.js:206
+#: widgets/connections.js:192
+msgid "Data saver"
+msgstr ""
+
+#: widgets/connections.js:209
 msgid "Tailscale not installed"
 msgstr ""
 
-#: widgets/connections.js:207
+#: widgets/connections.js:210
 #, javascript-format
 msgid "Tailscale %s · %d/%d online"
 msgstr ""
 
-#: widgets/connections.js:207
+#: widgets/connections.js:210
 msgid "Tailscale off"
 msgstr ""
 
-#: widgets/connections.js:214
+#: widgets/connections.js:217
 msgid "Signal"
 msgstr ""
 

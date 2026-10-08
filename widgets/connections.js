@@ -188,6 +188,8 @@ export class NetworkWidget extends Widget {
         const name = box(false, 'gwidgets-net-name');
         name.add_child(new St.Icon({icon_name: icon, icon_size: 14}));
         name.add_child(label(n.name, 'gwidgets-net-ssid', {x_expand: true}));
+        if (n.metered)
+            name.add_child(label(_('Data saver'), 'gwidgets-net-saver', {y_align: Clutter.ActorAlign.CENTER}));
         const ping = label(n.latency === null || n.latency === undefined ? '' : `${Math.round(n.latency)} ms`,
             'gwidgets-dim gwidgets-tiny');
         const speeds = box(this.size === 'small', 'gwidgets-net-speeds');

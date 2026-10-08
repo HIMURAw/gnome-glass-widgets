@@ -51,6 +51,16 @@ class Source {
     }
 }
 
+// A metered connection (a phone's hotspot, mobile data), as NetworkManager tells GIO:
+// the widgets then ask the internet less often.
+export function metered() {
+    try {
+        return Gio.NetworkMonitor.get_default().network_metered;
+    } catch {
+        return false;
+    }
+}
+
 function every(seconds, fn) {
     return GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, seconds, () => {
         fn();
@@ -159,7 +169,7 @@ class WeatherSource extends Source {
                 if (message.get_status() !== 200)
                     throw new Error(`HTTP ${message.get_status()}`);
                 this.set(this._parse(JSON.parse(new TextDecoder().decode(bytes.get_data())), place, lang));
-                this._later(30 * 60);
+                this._later(metered() ? 60 * 60 : 30 * 60);
             } catch (e) {
                 if (e.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
                     return;
@@ -256,7 +266,10 @@ class HarvisSource extends Source {
             return;
         }
         try {
-            const proc = Gio.Subprocess.new(argv, Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE);
+            const launcher = new Gio.SubprocessLauncher({
+                flags: Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE});
+            launcher.setenv('GLASS_WIDGETS_METERED', metered() ? '1' : '0', true);
+            const proc = launcher.spawnv(argv);
             proc.communicate_utf8_async(null, null, (p, res) => {
                 try {
                     const [, out] = p.communicate_utf8_finish(res);
@@ -739,7 +752,12 @@ class NetworkSource extends Source {
         });
         this._id = every(2, () => this._read());
         this._ping();
-        this._pingId = every(30, () => this._ping());
+        this._pingId = every(30, () => {
+            // Every 30 s, or every 2 minutes on a metered connection.
+            this._pings = (this._pings ?? 0) + 1;
+            if (!metered() || this._pings % 4 === 0)
+                this._ping();
+        });
         this._tail();
         this._tailId = every(60, () => this._tail());
     }
@@ -838,6 +856,7 @@ class NetworkSource extends Source {
             history: [...this._history],
             latency: this._latency,
             tailscale: this._tailscale,
+            metered: metered(),
         });
     }
 }

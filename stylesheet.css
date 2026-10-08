@@ -834,3 +834,13 @@
 .gwidgets-net-signal {
   spacing: 3px;
 }
+
+/* On a metered connection (a hotspot) the widgets check the internet less often. */
+.gwidgets-net-saver {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 999px;
+  color: #1c1c1e;
+  background-color: #ffd60a;
+}
