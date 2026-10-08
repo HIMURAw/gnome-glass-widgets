@@ -1,0 +1,714 @@
+/* Glass Widgets: the same dark frosted glass as Dynamic Island and Glass Dock.
+   The blur comes from glass.js; these rules add the tint, a hairline and the details.
+   One accent per widget, from its subject: the calendar's red page, the watch's orange
+   seconds hand, the notes' yellow paper, Harvis's green brain. */
+
+.gwidgets-tint {
+  background-color: rgba(24, 24, 28, 0.42);
+}
+
+.gwidgets-solid {
+  background-color: rgba(30, 30, 34, 0.94);
+}
+
+.gwidgets-widget {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #f5f5f7;
+}
+
+.gwidgets-editing {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.gwidgets-dragging {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.gwidgets-body {
+  padding: 14px 16px;
+  spacing: 6px;
+  font-size: 13px;
+}
+
+.gwidgets-body-flush {
+  padding: 10px;
+}
+
+/* ---------- Shared ---------- */
+
+.gwidgets-header {
+  spacing: 8px;
+  margin-bottom: 4px;
+}
+
+.gwidgets-caption {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: rgba(245, 245, 247, 0.62);
+}
+
+.gwidgets-red { color: #ff453a; }
+.gwidgets-orange { color: #ff9f0a; }
+.gwidgets-green { color: #30d158; }
+.gwidgets-yellow { color: #ffd60a; }
+.gwidgets-pink { color: #ff375f; }
+
+.gwidgets-dim {
+  color: rgba(245, 245, 247, 0.58);
+  font-size: 12px;
+}
+
+.gwidgets-tiny {
+  font-size: 11px;
+}
+
+.gwidgets-center {
+  text-align: center;
+}
+
+.gwidgets-placeholder {
+  color: rgba(245, 245, 247, 0.55);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.gwidgets-hidden {
+  background-color: transparent !important;
+}
+
+.gwidgets-round-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  color: #f5f5f7;
+  background-color: rgba(255, 255, 255, 0.14);
+  transition-duration: 120ms;
+}
+
+.gwidgets-round-button:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.gwidgets-round-button:active {
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+.gwidgets-yellow-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  color: #1c1c1e;
+  background-color: #ffd60a;
+}
+
+.gwidgets-yellow-button:hover {
+  background-color: #ffe14d;
+}
+
+/* ---------- Clock ---------- */
+
+.gwidgets-clock-left {
+  spacing: 2px;
+}
+
+.gwidgets-clock-time {
+  font-size: 54px;
+  font-weight: 300;
+  font-feature-settings: "tnum";
+}
+
+.gwidgets-clock-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(245, 245, 247, 0.72);
+}
+
+.gwidgets-clock-right {
+  spacing: 4px;
+  width: 118px;
+}
+
+/* ---------- Calendar ---------- */
+
+.gwidgets-cal-row {
+  spacing: 14px;
+}
+
+.gwidgets-cal-today {
+  spacing: 0;
+}
+
+.gwidgets-cal-number {
+  font-size: 46px;
+  font-weight: 300;
+}
+
+.gwidgets-cal-month {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.gwidgets-month {
+  spacing-rows: 1px;
+  spacing-columns: 0;
+  margin-top: 4px;
+}
+
+.gwidgets-month-head {
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(245, 245, 247, 0.48);
+  margin-bottom: 2px;
+}
+
+.gwidgets-month-day {
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9px;
+  text-align: center;
+}
+
+.gwidgets-month-big .gwidgets-month-head {
+  font-size: 11px;
+}
+
+.gwidgets-month-big .gwidgets-month-day {
+  font-size: 13px;
+  min-width: 24px;
+  height: 22px;
+  border-radius: 11px;
+}
+
+.gwidgets-weekend {
+  color: rgba(245, 245, 247, 0.55);
+}
+
+.gwidgets-today {
+  color: #ffffff;
+  background-color: #ff453a;
+  font-weight: 800;
+}
+
+.gwidgets-event-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: rgba(245, 245, 247, 0.6);
+}
+
+.gwidgets-event-list {
+  spacing: 8px;
+  margin-top: 10px;
+}
+
+.gwidgets-event {
+  spacing: 8px;
+}
+
+.gwidgets-event-bar {
+  width: 3px;
+  border-radius: 2px;
+  background-color: #ff453a;
+}
+
+.gwidgets-event-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------- Weather: the sky behind it from the weather itself ---------- */
+
+.gwidgets-sky {
+  background-gradient-direction: vertical;
+}
+
+.gwidgets-sky-day {
+  background-gradient-start: rgba(48, 120, 214, 0.62);
+  background-gradient-end: rgba(92, 162, 232, 0.42);
+}
+
+.gwidgets-sky-night {
+  background-gradient-start: rgba(16, 24, 58, 0.7);
+  background-gradient-end: rgba(44, 52, 96, 0.5);
+}
+
+.gwidgets-sky-cloud {
+  background-gradient-start: rgba(92, 106, 124, 0.62);
+  background-gradient-end: rgba(124, 136, 152, 0.42);
+}
+
+.gwidgets-sky-rain {
+  background-gradient-start: rgba(52, 66, 88, 0.7);
+  background-gradient-end: rgba(80, 96, 120, 0.5);
+}
+
+.gwidgets-sky-storm {
+  background-gradient-start: rgba(44, 36, 72, 0.75);
+  background-gradient-end: rgba(72, 62, 104, 0.55);
+}
+
+.gwidgets-sky-snow {
+  background-gradient-start: rgba(120, 146, 176, 0.6);
+  background-gradient-end: rgba(168, 188, 210, 0.42);
+}
+
+.gwidgets-weather-place {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.gwidgets-weather-temp {
+  font-size: 38px;
+  font-weight: 300;
+}
+
+.gwidgets-weather-temp-mid {
+  font-size: 32px;
+}
+
+.gwidgets-weather-right {
+  spacing: 0;
+}
+
+.gwidgets-weather-summary {
+  spacing: 0;
+}
+
+.gwidgets-weather-text {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gwidgets-hours {
+  spacing: 2px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.gwidgets-hour {
+  spacing: 0;
+}
+
+.gwidgets-hour-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(245, 245, 247, 0.72);
+}
+
+.gwidgets-hour-temp {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gwidgets-days {
+  spacing: 2px;
+  margin-top: 8px;
+}
+
+.gwidgets-day {
+  spacing: 8px;
+  height: 28px;
+}
+
+.gwidgets-day-name {
+  font-size: 13px;
+  font-weight: 700;
+  width: 82px;
+}
+
+.gwidgets-day-rain {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7cc4ff;
+  width: 34px;
+}
+
+.gwidgets-day-lo {
+  font-size: 13px;
+  color: rgba(245, 245, 247, 0.6);
+  width: 30px;
+  text-align: right;
+}
+
+.gwidgets-day-hi {
+  font-size: 13px;
+  font-weight: 700;
+  width: 30px;
+}
+
+.gwidgets-day-range {
+  border-radius: 3px;
+}
+
+/* ---------- System ---------- */
+
+.gwidgets-sys-rows {
+  spacing: 10px;
+}
+
+.gwidgets-sys-row {
+  spacing: 4px;
+}
+
+.gwidgets-sys-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gwidgets-sys-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(245, 245, 247, 0.72);
+  font-feature-settings: "tnum";
+}
+
+.gwidgets-sys-rings {
+  spacing: 8px;
+}
+
+.gwidgets-sys-ring {
+  spacing: 4px;
+}
+
+.gwidgets-sys-ring-value {
+  font-size: 14px;
+  font-weight: 800;
+  font-feature-settings: "tnum";
+}
+
+/* ---------- Batteries ---------- */
+
+.gwidgets-battery-big {
+  font-size: 22px;
+  font-weight: 300;
+  margin-top: 8px;
+}
+
+.gwidgets-battery-list {
+  spacing: 10px;
+}
+
+.gwidgets-battery-row {
+  spacing: 10px;
+}
+
+.gwidgets-battery-icon {
+  color: rgba(245, 245, 247, 0.85);
+}
+
+.gwidgets-battery-name {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.gwidgets-battery-value {
+  font-size: 13px;
+  font-weight: 700;
+  font-feature-settings: "tnum";
+  min-width: 46px;
+  text-align: right;
+}
+
+/* ---------- Music ---------- */
+
+.gwidgets-cover {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(245, 245, 247, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.gwidgets-music-row {
+  spacing: 14px;
+}
+
+.gwidgets-music-right {
+  spacing: 2px;
+}
+
+.gwidgets-music-app {
+  spacing: 6px;
+  margin-bottom: 4px;
+}
+
+.gwidgets-music-title {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gwidgets-music-title-big {
+  font-size: 16px;
+}
+
+.gwidgets-controls {
+  spacing: 6px;
+}
+
+.gwidgets-control {
+  width: 34px;
+  height: 34px;
+  border-radius: 17px;
+  color: #f5f5f7;
+  transition-duration: 120ms;
+}
+
+.gwidgets-control:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.gwidgets-control-main {
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+/* ---------- Notes ---------- */
+
+.gwidgets-note-button,
+.gwidgets-note-row {
+  border-radius: 10px;
+  padding: 4px 6px;
+  margin: 0 -6px;
+  transition-duration: 120ms;
+}
+
+.gwidgets-note-button:hover,
+.gwidgets-note-row:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.gwidgets-note-text {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.gwidgets-note-list {
+  spacing: 2px;
+}
+
+.gwidgets-note-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gwidgets-note-dialog {
+  min-width: 420px;
+}
+
+.gwidgets-note-dialog-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.gwidgets-note-entry {
+  min-height: 80px;
+}
+
+/* ---------- Harvis ---------- */
+
+.gwidgets-reminder-list {
+  spacing: 10px;
+}
+
+.gwidgets-reminder {
+  spacing: 10px;
+}
+
+.gwidgets-reminder-ring {
+  width: 12px;
+  height: 12px;
+  border-radius: 7px;
+  border: 2px solid #30d158;
+  margin-top: 2px;
+}
+
+.gwidgets-reminder-text {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gwidgets-morning-section {
+  spacing: 4px;
+  margin-top: 4px;
+}
+
+.gwidgets-morning-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(245, 245, 247, 0.85);
+}
+
+.gwidgets-morning-row {
+  spacing: 8px;
+}
+
+.gwidgets-morning-mark {
+  font-size: 12px;
+  color: rgba(245, 245, 247, 0.5);
+  width: 10px;
+}
+
+.gwidgets-morning-num {
+  font-weight: 800;
+  color: #30d158;
+}
+
+.gwidgets-morning-text {
+  font-size: 12.5px;
+  line-height: 1.2;
+}
+
+.gwidgets-finance-total {
+  spacing: 0;
+}
+
+.gwidgets-finance-big {
+  font-size: 26px;
+  font-weight: 300;
+  font-feature-settings: "tnum";
+}
+
+.gwidgets-finance-month {
+  spacing: 10px;
+}
+
+.gwidgets-finance-in {
+  font-size: 12px;
+  font-weight: 700;
+  color: #30d158;
+}
+
+.gwidgets-finance-out {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff6961;
+}
+
+.gwidgets-finance-cols {
+  spacing: 16px;
+}
+
+.gwidgets-finance-right {
+  spacing: 6px;
+}
+
+.gwidgets-finance-name {
+  font-size: 12px;
+  color: rgba(245, 245, 247, 0.72);
+}
+
+.gwidgets-finance-amount {
+  font-size: 12px;
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+
+/* ---------- Editing ---------- */
+
+.gwidgets-scrim {
+  background-color: rgba(0, 0, 0, 0.32);
+}
+
+.gwidgets-ghost {
+  border-radius: 22px;
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.gwidgets-remove {
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  color: #1c1c1e;
+  background-color: rgba(235, 235, 240, 0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.gwidgets-remove:hover {
+  background-color: #ffffff;
+}
+
+.gwidgets-gallery {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f5f5f7;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.gwidgets-gallery-content {
+  padding: 20px 22px 18px 22px;
+  spacing: 14px;
+}
+
+.gwidgets-gallery-top {
+  spacing: 16px;
+}
+
+.gwidgets-gallery-title {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.gwidgets-done {
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  color: #ffffff;
+  background-color: -st-accent-color;
+}
+
+.gwidgets-done:hover {
+  box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.12);
+}
+
+.gwidgets-gallery-card {
+  min-width: 156px;
+  min-height: 118px;
+  padding: 12px;
+  spacing: 6px;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.gwidgets-gallery-card-head {
+  spacing: 8px;
+}
+
+.gwidgets-gallery-icon {
+  color: #f5f5f7;
+}
+
+.gwidgets-gallery-name {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.gwidgets-gallery-sizes {
+  spacing: 6px;
+}
+
+.gwidgets-size-chip {
+  min-width: 34px;
+  height: 28px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 12px;
+  color: #f5f5f7;
+  background-color: rgba(255, 255, 255, 0.12);
+  transition-duration: 120ms;
+}
+
+.gwidgets-size-chip:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.gwidgets-size-chip:focus {
+  box-shadow: inset 0 0 0 2px -st-accent-color;
+}

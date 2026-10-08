@@ -1,0 +1,426 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Glass Widgets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Glass Widgets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 15:42+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:241 extension.js:329
+msgid "Remove Widget"
+msgstr "Widget'ı Kaldır"
+
+#: extension.js:277
+msgid "No room for a bigger widget"
+msgstr "Daha büyük widget için yer yok"
+
+#: extension.js:295
+msgid "The desktop is full"
+msgstr "Masaüstü dolu"
+
+#: extension.js:295
+msgid "Remove a widget to make room."
+msgstr "Yer açmak için bir widget kaldır."
+
+#: extension.js:326
+msgid "Refresh"
+msgstr "Yenile"
+
+#: extension.js:328
+msgid "Done Editing"
+msgstr "Düzenlemeyi Bitir"
+
+#: extension.js:328
+msgid "Edit Widgets…"
+msgstr "Widget'ları Düzenle…"
+
+#: gallery.js:10
+msgid "S"
+msgstr "K"
+
+#: gallery.js:10
+msgid "M"
+msgstr "O"
+
+#: gallery.js:10
+msgid "L"
+msgstr "B"
+
+#: gallery.js:11
+msgid "Small"
+msgstr "Küçük"
+
+#: gallery.js:11
+msgid "Medium"
+msgstr "Orta"
+
+#: gallery.js:11
+msgid "Large"
+msgstr "Büyük"
+
+#: gallery.js:25 prefs.js:17
+msgid "Widgets"
+msgstr "Widget'lar"
+
+#: gallery.js:26
+msgid "Drag widgets to move them. Right-click one for its size."
+msgstr "Taşımak için sürükle. Boyut için widget'a sağ tıkla."
+
+#: gallery.js:28
+msgid "Done"
+msgstr "Bitti"
+
+#: prefs.js:18
+msgid ""
+"Right-click a widget on the desktop for its size, or edit them all at once."
+msgstr ""
+
+#: prefs.js:20
+msgid "Edit widgets"
+msgstr "Widget'ları düzenle"
+
+#: prefs.js:21
+msgid "Shows the gallery on the desktop: add, drag and remove widgets"
+msgstr "Masaüstünde galeriyi açar: widget ekle, taşı, kaldır"
+
+#: prefs.js:22
+msgid "Edit"
+msgstr "Düzenle"
+
+#: prefs.js:30
+msgid "Start over"
+msgstr "Baştan başla"
+
+#: prefs.js:30
+msgid "Back to the default widgets"
+msgstr "Varsayılan widget'lara dön"
+
+#: prefs.js:31
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: prefs.js:36
+msgid "Appearance"
+msgstr "Görünüm"
+
+#: prefs.js:38
+msgid "Frosted glass"
+msgstr "Buzlu cam"
+
+#: prefs.js:38
+msgid "Blur the wallpaper behind widgets"
+msgstr "Widget'ların arkasındaki duvar kâğıdını bulanıklaştır"
+
+#: prefs.js:41
+msgid "Step back behind apps"
+msgstr "Uygulama öndeyken geri çekil"
+
+#: prefs.js:42
+msgid "Dim and grey the widgets while an app is in front"
+msgstr "Bir uygulama öndeyken widget'ları soluklaştır"
+
+#: prefs.js:46
+msgid "Data"
+msgstr "Veri"
+
+#: prefs.js:48
+msgid "Weather location (empty: from the network)"
+msgstr "Hava durumu konumu (boş: ağdan bulunur)"
+
+#: prefs.js:52 prefs.js:57
+msgid "Notes folder"
+msgstr "Notlar klasörü"
+
+#: prefs.js:55
+msgid "Choose a folder"
+msgstr "Klasör seç"
+
+#: prefs.js:73
+msgid "Harvis command (reminders, morning report, money)"
+msgstr "Harvis komutu (hatırlatmalar, sabah raporu, para)"
+
+#: widgets/batteries.js:25
+msgid "This computer"
+msgstr "Bu bilgisayar"
+
+#: widgets/batteries.js:30
+msgid "No batteries"
+msgstr "Pil yok"
+
+#: widgets/batteries.js:71 widgets/index.js:28
+msgid "Batteries"
+msgstr "Piller"
+
+#: widgets/calendar.js:23
+msgid "Tomorrow"
+msgstr "Yarın"
+
+#: widgets/calendar.js:25
+msgid "All day"
+msgstr "Tüm gün"
+
+#: widgets/calendar.js:99 widgets/calendar.js:130
+msgid "No calendars"
+msgstr "Takvim yok"
+
+#: widgets/calendar.js:99
+msgid "No events"
+msgstr "Etkinlik yok"
+
+#: widgets/calendar.js:130
+msgid "No upcoming events"
+msgstr "Yaklaşan etkinlik yok"
+
+#: widgets/clock.js:117
+#, javascript-format
+msgid "Week %d"
+msgstr "%d. hafta"
+
+#: widgets/clock.js:122
+#, javascript-format
+msgid "Day %d%%"
+msgstr "Gün %%%d"
+
+#: widgets/clock.js:123
+#, javascript-format
+msgid "Year %d%%"
+msgstr "Yıl %%%d"
+
+#: widgets/harvis.js:19
+#, javascript-format
+msgid "Today %s"
+msgstr "Bugün %s"
+
+#: widgets/harvis.js:21
+#, javascript-format
+msgid "Tomorrow %s"
+msgstr "Yarın %s"
+
+#: widgets/harvis.js:31
+msgid "Harvis is not available"
+msgstr "Harvis bulunamadı"
+
+#: widgets/harvis.js:33
+msgid "Could not read it"
+msgstr "Okunamadı"
+
+#: widgets/harvis.js:46 widgets/index.js:30
+msgid "Reminders"
+msgstr "Hatırlatmalar"
+
+#: widgets/harvis.js:52
+msgid "Nothing to remember"
+msgstr "Hatırlatılacak bir şey yok"
+
+#: widgets/harvis.js:53
+msgid "“Hey Harvis, remind me at nine tomorrow…”"
+msgstr "“Hey Harvis, yarın dokuzda hatırlat…”"
+
+#: widgets/harvis.js:78 widgets/index.js:32
+msgid "Morning report"
+msgstr "Sabah raporu"
+
+#: widgets/harvis.js:83
+msgid "No report yet today"
+msgstr "Bugün henüz rapor yok"
+
+#: widgets/harvis.js:100 widgets/weather.js:213
+msgid "Today"
+msgstr "Bugün"
+
+#: widgets/harvis.js:102
+msgid "Yesterday"
+msgstr "Dün"
+
+#: widgets/harvis.js:117 widgets/index.js:34
+msgid "Money"
+msgstr "Para"
+
+#: widgets/harvis.js:122
+msgid "Total"
+msgstr "Toplam"
+
+#: widgets/harvis.js:130
+msgid "This month"
+msgstr "Bu ay"
+
+#: widgets/index.js:16
+msgid "Clock"
+msgstr "Saat"
+
+#: widgets/index.js:16
+msgid "A watch face, or the time in big digits"
+msgstr "Kol saati ya da büyük rakamlarla saat"
+
+#: widgets/index.js:18
+msgid "Calendar"
+msgstr "Takvim"
+
+#: widgets/index.js:18
+msgid "Today, the month and what is coming"
+msgstr "Bugün, ay ve yaklaşanlar"
+
+#: widgets/index.js:20
+msgid "Weather"
+msgstr "Hava Durumu"
+
+#: widgets/index.js:20
+msgid "Now, the next hours and days"
+msgstr "Şimdi, sonraki saatler ve günler"
+
+#: widgets/index.js:22 widgets/music.js:44
+msgid "Music"
+msgstr "Müzik"
+
+#: widgets/index.js:22
+msgid "What is playing, with controls"
+msgstr "Çalan şarkı ve kontroller"
+
+#: widgets/index.js:24 widgets/notes.js:68
+msgid "Notes"
+msgstr "Notlar"
+
+#: widgets/index.js:24
+msgid "Your latest notes; add one"
+msgstr "Son notların; yenisini ekle"
+
+#: widgets/index.js:26 widgets/system.js:47 widgets/system.js:65
+msgid "System"
+msgstr "Sistem"
+
+#: widgets/index.js:26
+msgid "Processor, memory and disk"
+msgstr "İşlemci, bellek ve disk"
+
+#: widgets/index.js:28
+msgid "This computer and Bluetooth devices"
+msgstr "Bu bilgisayar ve Bluetooth cihazları"
+
+#: widgets/index.js:30
+msgid "What Harvis will remind you of"
+msgstr "Harvis'in sana hatırlatacakları"
+
+#: widgets/index.js:32
+msgid "Harvis’s summary of today and yesterday"
+msgstr "Harvis'in bugün ve dün özeti"
+
+#: widgets/index.js:34
+msgid "Balances, this month and your goal"
+msgstr "Bakiyeler, bu ay ve hedefin"
+
+#: widgets/music.js:43
+msgid "Nothing playing"
+msgstr "Çalan bir şey yok"
+
+#: widgets/music.js:70
+msgid "Now playing"
+msgstr "Şimdi çalıyor"
+
+#: widgets/music.js:70
+msgid "Paused"
+msgstr "Duraklatıldı"
+
+#: widgets/notes.js:15
+msgid "just now"
+msgstr "az önce"
+
+#: widgets/notes.js:17
+#, javascript-format
+msgid "%d min ago"
+msgstr "%d dk önce"
+
+#: widgets/notes.js:20
+#, javascript-format
+msgid "%d h ago"
+msgstr "%d sa önce"
+
+#: widgets/notes.js:29
+msgid "A new note…"
+msgstr "Yeni bir not…"
+
+#: widgets/notes.js:33
+msgid "New note"
+msgstr "Yeni not"
+
+#: widgets/notes.js:43
+msgid "Cancel"
+msgstr "Vazgeç"
+
+#: widgets/notes.js:44
+msgid "Save"
+msgstr "Kaydet"
+
+#: widgets/notes.js:70
+msgid "Choose a notes folder in the settings"
+msgstr "Ayarlardan bir notlar klasörü seç"
+
+#: widgets/notes.js:74
+msgid "Folder not found"
+msgstr "Klasör bulunamadı"
+
+#: widgets/notes.js:74
+msgid "No notes yet"
+msgstr "Henüz not yok"
+
+#: widgets/system.js:22
+#, javascript-format
+msgid "Up %dd %dh"
+msgstr "Açık %dg %dsa"
+
+#: widgets/system.js:23
+#, javascript-format
+msgid "Up %dh %dm"
+msgstr "Açık %dsa %ddk"
+
+#: widgets/system.js:23
+#, javascript-format
+msgid "Up %dm"
+msgstr "Açık %ddk"
+
+#: widgets/system.js:30
+msgid "CPU"
+msgstr "İşlemci"
+
+#: widgets/system.js:30
+msgid "Memory"
+msgstr "Bellek"
+
+#: widgets/system.js:30
+msgid "Disk"
+msgstr "Disk"
+
+#: widgets/system.js:77
+#, javascript-format
+msgid "%s free"
+msgstr "%s boş"
+
+#: widgets/weather.js:155
+msgid "Loading the weather…"
+msgstr "Hava durumu yükleniyor…"
+
+#: widgets/weather.js:162
+msgid "No weather (offline?)"
+msgstr "Hava durumu yok (çevrimdışı?)"
+
+#: widgets/weather.js:167
+msgid "Here"
+msgstr "Burası"
+
+#: widgets/weather.js:172
+#, javascript-format
+msgid "H:%d°  L:%d°"
+msgstr "Y:%d°  D:%d°"
+
+#: widgets/weather.js:197
+msgid "Now"
+msgstr "Şimdi"

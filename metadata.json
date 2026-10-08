@@ -1,0 +1,10 @@
+{
+  "uuid": "glass-widgets@himuraw",
+  "name": "Glass Widgets",
+  "description": "Desktop widgets in frosted glass, like the macOS desktop.\n\nClock, calendar, weather, music, notes, system and batteries sit on the wallpaper under your windows and step back while an app is in front. Right-click a widget for its size; Edit Widgets opens the gallery and lets you drag them on a grid. Pairs with Dynamic Island and Glass Dock.",
+  "shell-version": ["50"],
+  "url": "https://github.com/HIMURAw/gnome-glass-widgets",
+  "settings-schema": "org.gnome.shell.extensions.glass-widgets",
+  "gettext-domain": "glass-widgets@himuraw",
+  "version-name": "1.0"
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="glass-widgets@himuraw">
+  <schema id="org.gnome.shell.extensions.glass-widgets"
+          path="/org/gnome/shell/extensions/glass-widgets/">
+    <key name="layout" type="s">
+      <default>''</default>
+      <summary>Widgets on the desktop</summary>
+      <description>JSON: a list of {id, type, size, col, row}. Empty: the default set.</description>
+    </key>
+    <key name="editing" type="b">
+      <default>false</default>
+      <summary>Editing the widgets</summary>
+      <description>True while the gallery is open; the preferences turn it on.</description>
+    </key>
+    <key name="weather-location" type="s">
+      <default>''</default>
+      <summary>Weather location</summary>
+      <description>A city ("Ankara") or coordinates; empty: guessed from the network.</description>
+    </key>
+    <key name="notes-folder" type="s">
+      <default>'~/Notes'</default>
+      <summary>Notes folder</summary>
+      <description>The Markdown notes the Notes widget shows and adds to.</description>
+    </key>
+    <key name="harvis-command" type="s">
+      <default>'harvis widgets'</default>
+      <summary>Harvis command</summary>
+      <description>Prints the JSON the Harvis widgets show (reminders, morning report, money). When it is not installed those widgets are not offered.</description>
+    </key>
+    <key name="dim" type="b">
+      <default>true</default>
+      <summary>Step back while an app is in front</summary>
+    </key>
+    <key name="blur" type="b">
+      <default>true</default>
+      <summary>Frosted glass</summary>
+    </key>
+  </schema>
+</schemalist>

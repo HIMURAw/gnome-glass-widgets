@@ -1,0 +1,427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Glass Widgets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Glass Widgets\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 15:42+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:241 extension.js:329
+msgid "Remove Widget"
+msgstr ""
+
+#: extension.js:277
+msgid "No room for a bigger widget"
+msgstr ""
+
+#: extension.js:295
+msgid "The desktop is full"
+msgstr ""
+
+#: extension.js:295
+msgid "Remove a widget to make room."
+msgstr ""
+
+#: extension.js:326
+msgid "Refresh"
+msgstr ""
+
+#: extension.js:328
+msgid "Done Editing"
+msgstr ""
+
+#: extension.js:328
+msgid "Edit Widgets…"
+msgstr ""
+
+#: gallery.js:10
+msgid "S"
+msgstr ""
+
+#: gallery.js:10
+msgid "M"
+msgstr ""
+
+#: gallery.js:10
+msgid "L"
+msgstr ""
+
+#: gallery.js:11
+msgid "Small"
+msgstr ""
+
+#: gallery.js:11
+msgid "Medium"
+msgstr ""
+
+#: gallery.js:11
+msgid "Large"
+msgstr ""
+
+#: gallery.js:25 prefs.js:17
+msgid "Widgets"
+msgstr ""
+
+#: gallery.js:26
+msgid "Drag widgets to move them. Right-click one for its size."
+msgstr ""
+
+#: gallery.js:28
+msgid "Done"
+msgstr ""
+
+#: prefs.js:18
+msgid ""
+"Right-click a widget on the desktop for its size, or edit them all at once."
+msgstr ""
+
+#: prefs.js:20
+msgid "Edit widgets"
+msgstr ""
+
+#: prefs.js:21
+msgid "Shows the gallery on the desktop: add, drag and remove widgets"
+msgstr ""
+
+#: prefs.js:22
+msgid "Edit"
+msgstr ""
+
+#: prefs.js:30
+msgid "Start over"
+msgstr ""
+
+#: prefs.js:30
+msgid "Back to the default widgets"
+msgstr ""
+
+#: prefs.js:31
+msgid "Reset"
+msgstr ""
+
+#: prefs.js:36
+msgid "Appearance"
+msgstr ""
+
+#: prefs.js:38
+msgid "Frosted glass"
+msgstr ""
+
+#: prefs.js:38
+msgid "Blur the wallpaper behind widgets"
+msgstr ""
+
+#: prefs.js:41
+msgid "Step back behind apps"
+msgstr ""
+
+#: prefs.js:42
+msgid "Dim and grey the widgets while an app is in front"
+msgstr ""
+
+#: prefs.js:46
+msgid "Data"
+msgstr ""
+
+#: prefs.js:48
+msgid "Weather location (empty: from the network)"
+msgstr ""
+
+#: prefs.js:52 prefs.js:57
+msgid "Notes folder"
+msgstr ""
+
+#: prefs.js:55
+msgid "Choose a folder"
+msgstr ""
+
+#: prefs.js:73
+msgid "Harvis command (reminders, morning report, money)"
+msgstr ""
+
+#: widgets/batteries.js:25
+msgid "This computer"
+msgstr ""
+
+#: widgets/batteries.js:30
+msgid "No batteries"
+msgstr ""
+
+#: widgets/batteries.js:71 widgets/index.js:28
+msgid "Batteries"
+msgstr ""
+
+#: widgets/calendar.js:23
+msgid "Tomorrow"
+msgstr ""
+
+#: widgets/calendar.js:25
+msgid "All day"
+msgstr ""
+
+#: widgets/calendar.js:99 widgets/calendar.js:130
+msgid "No calendars"
+msgstr ""
+
+#: widgets/calendar.js:99
+msgid "No events"
+msgstr ""
+
+#: widgets/calendar.js:130
+msgid "No upcoming events"
+msgstr ""
+
+#: widgets/clock.js:117
+#, javascript-format
+msgid "Week %d"
+msgstr ""
+
+#: widgets/clock.js:122
+#, javascript-format
+msgid "Day %d%%"
+msgstr ""
+
+#: widgets/clock.js:123
+#, javascript-format
+msgid "Year %d%%"
+msgstr ""
+
+#: widgets/harvis.js:19
+#, javascript-format
+msgid "Today %s"
+msgstr ""
+
+#: widgets/harvis.js:21
+#, javascript-format
+msgid "Tomorrow %s"
+msgstr ""
+
+#: widgets/harvis.js:31
+msgid "Harvis is not available"
+msgstr ""
+
+#: widgets/harvis.js:33
+msgid "Could not read it"
+msgstr ""
+
+#: widgets/harvis.js:46 widgets/index.js:30
+msgid "Reminders"
+msgstr ""
+
+#: widgets/harvis.js:52
+msgid "Nothing to remember"
+msgstr ""
+
+#: widgets/harvis.js:53
+msgid "“Hey Harvis, remind me at nine tomorrow…”"
+msgstr ""
+
+#: widgets/harvis.js:78 widgets/index.js:32
+msgid "Morning report"
+msgstr ""
+
+#: widgets/harvis.js:83
+msgid "No report yet today"
+msgstr ""
+
+#: widgets/harvis.js:100 widgets/weather.js:213
+msgid "Today"
+msgstr ""
+
+#: widgets/harvis.js:102
+msgid "Yesterday"
+msgstr ""
+
+#: widgets/harvis.js:117 widgets/index.js:34
+msgid "Money"
+msgstr ""
+
+#: widgets/harvis.js:122
+msgid "Total"
+msgstr ""
+
+#: widgets/harvis.js:130
+msgid "This month"
+msgstr ""
+
+#: widgets/index.js:16
+msgid "Clock"
+msgstr ""
+
+#: widgets/index.js:16
+msgid "A watch face, or the time in big digits"
+msgstr ""
+
+#: widgets/index.js:18
+msgid "Calendar"
+msgstr ""
+
+#: widgets/index.js:18
+msgid "Today, the month and what is coming"
+msgstr ""
+
+#: widgets/index.js:20
+msgid "Weather"
+msgstr ""
+
+#: widgets/index.js:20
+msgid "Now, the next hours and days"
+msgstr ""
+
+#: widgets/index.js:22 widgets/music.js:44
+msgid "Music"
+msgstr ""
+
+#: widgets/index.js:22
+msgid "What is playing, with controls"
+msgstr ""
+
+#: widgets/index.js:24 widgets/notes.js:68
+msgid "Notes"
+msgstr ""
+
+#: widgets/index.js:24
+msgid "Your latest notes; add one"
+msgstr ""
+
+#: widgets/index.js:26 widgets/system.js:47 widgets/system.js:65
+msgid "System"
+msgstr ""
+
+#: widgets/index.js:26
+msgid "Processor, memory and disk"
+msgstr ""
+
+#: widgets/index.js:28
+msgid "This computer and Bluetooth devices"
+msgstr ""
+
+#: widgets/index.js:30
+msgid "What Harvis will remind you of"
+msgstr ""
+
+#: widgets/index.js:32
+msgid "Harvis’s summary of today and yesterday"
+msgstr ""
+
+#: widgets/index.js:34
+msgid "Balances, this month and your goal"
+msgstr ""
+
+#: widgets/music.js:43
+msgid "Nothing playing"
+msgstr ""
+
+#: widgets/music.js:70
+msgid "Now playing"
+msgstr ""
+
+#: widgets/music.js:70
+msgid "Paused"
+msgstr ""
+
+#: widgets/notes.js:15
+msgid "just now"
+msgstr ""
+
+#: widgets/notes.js:17
+#, javascript-format
+msgid "%d min ago"
+msgstr ""
+
+#: widgets/notes.js:20
+#, javascript-format
+msgid "%d h ago"
+msgstr ""
+
+#: widgets/notes.js:29
+msgid "A new note…"
+msgstr ""
+
+#: widgets/notes.js:33
+msgid "New note"
+msgstr ""
+
+#: widgets/notes.js:43
+msgid "Cancel"
+msgstr ""
+
+#: widgets/notes.js:44
+msgid "Save"
+msgstr ""
+
+#: widgets/notes.js:70
+msgid "Choose a notes folder in the settings"
+msgstr ""
+
+#: widgets/notes.js:74
+msgid "Folder not found"
+msgstr ""
+
+#: widgets/notes.js:74
+msgid "No notes yet"
+msgstr ""
+
+#: widgets/system.js:22
+#, javascript-format
+msgid "Up %dd %dh"
+msgstr ""
+
+#: widgets/system.js:23
+#, javascript-format
+msgid "Up %dh %dm"
+msgstr ""
+
+#: widgets/system.js:23
+#, javascript-format
+msgid "Up %dm"
+msgstr ""
+
+#: widgets/system.js:30
+msgid "CPU"
+msgstr ""
+
+#: widgets/system.js:30
+msgid "Memory"
+msgstr ""
+
+#: widgets/system.js:30
+msgid "Disk"
+msgstr ""
+
+#: widgets/system.js:77
+#, javascript-format
+msgid "%s free"
+msgstr ""
+
+#: widgets/weather.js:155
+msgid "Loading the weather…"
+msgstr ""
+
+#: widgets/weather.js:162
+msgid "No weather (offline?)"
+msgstr ""
+
+#: widgets/weather.js:167
+msgid "Here"
+msgstr ""
+
+#: widgets/weather.js:172
+#, javascript-format
+msgid "H:%d°  L:%d°"
+msgstr ""
+
+#: widgets/weather.js:197
+msgid "Now"
+msgstr ""
