@@ -31,8 +31,10 @@ export class HarvisWidget extends Widget {
                 this.fill(this.head(), placeholder(_('Harvis is not available')));
             else if (!part || part.error)
                 this.fill(this.head(), placeholder(_('Could not read it')));
-            else
+            else {
+                this.target = part.open ?? null;
                 this.render(part);
+            }
         });
     }
 }

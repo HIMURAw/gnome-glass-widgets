@@ -67,6 +67,7 @@ function paintFace(cr, w, h, s, now) {
 export class ClockWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
+        this.target = {app: 'org.gnome.clocks.desktop'};
         if (size === 'small')
             this._analog();
         else

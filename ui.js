@@ -1,5 +1,7 @@
 import Clutter from 'gi://Clutter';
+import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
+import Shell from 'gi://Shell';
 import Pango from 'gi://Pango';
 import St from 'gi://St';
 import Cairo from 'cairo';
@@ -150,4 +152,34 @@ export function hhmm(date) {
 export function placeholder(text) {
     return label(text, 'gwidgets-placeholder', {x_expand: true, y_expand: true,
         x_align: Clutter.ActorAlign.CENTER, y_align: Clutter.ActorAlign.CENTER});
+}
+
+// What a widget opens when clicked: a function, or {app} (a .desktop id), {uri} (with
+// {app}: in that app), or {argv}. Missing apps fall back to the URI's default handler.
+export function launch(target) {
+    if (!target)
+        return false;
+    try {
+        if (typeof target === 'function') {
+            target();
+            return true;
+        }
+        const context = global.create_app_launch_context(0, -1);
+        const app = target.app ? Shell.AppSystem.get_default().lookup_app(target.app) : null;
+        if (app && target.uri)
+            return app.app_info.launch_uris([target.uri], context);
+        if (app) {
+            app.activate();
+            return true;
+        }
+        if (target.argv) {
+            GLib.spawn_async(null, target.argv, null, GLib.SpawnFlags.SEARCH_PATH, null);
+            return true;
+        }
+        if (target.uri)
+            return Gio.AppInfo.launch_default_for_uri(target.uri, context);
+    } catch (e) {
+        console.error('Glass Widgets: could not open', e);
+    }
+    return false;
 }

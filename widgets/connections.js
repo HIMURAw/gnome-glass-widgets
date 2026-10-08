@@ -92,6 +92,8 @@ export class MailWidget extends HarvisWidget {
     }
 
     render(m) {
+        const account = m.items?.find(i => i.account)?.account;
+        this.target = {uri: account ? `https://mail.google.com/mail/u/${account}/` : 'https://mail.google.com/'};
         const count = box(true, 'gwidgets-mail-count');
         count.add_child(label(String(m.unread ?? 0), 'gwidgets-mail-big'));
         count.add_child(label(_('unread'), 'gwidgets-dim'));
@@ -180,6 +182,7 @@ export class NetworkWidget extends Widget {
     }
 
     _render(n) {
+        this.target = {argv: ['gnome-control-center', n.wifi ? 'wifi' : 'network']};
         if (!n.online) {
             this.fill(this.header(_('Network'), 'gwidgets-blue'), placeholder(_('Offline')));
             return;

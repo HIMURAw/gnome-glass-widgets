@@ -9,6 +9,7 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 
 import {Gallery, SIZE_TITLES} from './gallery.js';
 import {setBlurEnabled} from './glass.js';
+import {launch} from './ui.js';
 import {Sources} from './sources.js';
 import {CELL, GAP, SIZES} from './widget.js';
 import {widgetTypes} from './widgets/index.js';
@@ -380,7 +381,7 @@ export default class GlassWidgetsExtension extends Extension {
             return Clutter.EVENT_STOP;
         }
         if (!this._editing)
-            return Clutter.EVENT_PROPAGATE;
+            return this._onClick(entry, event);
         // While editing, widgets are dragged, not used; only the remove badge works.
         const source = global.stage.get_event_actor(event);
         if (!this._drag && source && (source === entry.badge || entry.badge.contains(source)))
@@ -407,6 +408,28 @@ export default class GlassWidgetsExtension extends Extension {
             return Clutter.EVENT_STOP;
         }
         return press || type === Clutter.EventType.BUTTON_RELEASE ? Clutter.EVENT_STOP : Clutter.EVENT_PROPAGATE;
+    }
+
+    // A click on the widget itself (not on one of its buttons, not a drag) opens what it is about.
+    _onClick(entry, event) {
+        const type = event.type();
+        if (event.get_button?.() !== Clutter.BUTTON_PRIMARY)
+            return Clutter.EVENT_PROPAGATE;
+        const [x, y] = event.get_coords();
+        if (type === Clutter.EventType.BUTTON_PRESS) {
+            this._press = {entry, x, y};
+        } else if (type === Clutter.EventType.BUTTON_RELEASE) {
+            const press = this._press;
+            this._press = null;
+            if (press?.entry !== entry || Math.hypot(x - press.x, y - press.y) > 8 || !entry.widget.target)
+                return Clutter.EVENT_PROPAGATE;
+            for (let a = global.stage.get_event_actor(event); a && a !== entry.slot; a = a.get_parent()) {
+                if (a instanceof St.Button)
+                    return Clutter.EVENT_PROPAGATE;
+            }
+            launch(entry.widget.target);
+        }
+        return Clutter.EVENT_PROPAGATE;
     }
 
     // Where the dragged widget would land: the nearest free cells to where it is.

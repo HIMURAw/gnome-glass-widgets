@@ -857,3 +857,8 @@
   color: #1c1c1e;
   background-color: #ffd60a;
 }
+
+/* A widget that opens something when clicked brightens its edge under the pointer. */
+.gwidgets-clickable:hover {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}

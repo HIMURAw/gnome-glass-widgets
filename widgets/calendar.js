@@ -67,6 +67,7 @@ function eventRow(event, now) {
 export class CalendarWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
+        this.target = {app: 'org.gnome.Calendar.desktop'};
         let data = null;
         let day = -1;
         const render = () => {

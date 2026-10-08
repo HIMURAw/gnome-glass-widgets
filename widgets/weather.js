@@ -152,6 +152,7 @@ function sky(w) {
 export class WeatherWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
+        this.target = {app: 'org.gnome.Weather.desktop'};
         this.fill(placeholder(_('Loading the weather…')));
         this.watch(ctx.sources.weather, w => this._render(w));
     }

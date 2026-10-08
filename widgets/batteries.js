@@ -18,6 +18,7 @@ function levelColor(d) {
 export class BatteriesWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
+        this.target = {argv: ['gnome-control-center', 'power']};
         this.watch(ctx.sources.batteries, devices => this._render(devices ?? []));
     }
 

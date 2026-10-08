@@ -37,6 +37,20 @@ export class Widget {
         });
     }
 
+    // What clicking the widget (not one of its buttons) opens; see launch() in ui.js.
+    set target(target) {
+        this._target = target;
+        this.actor.track_hover = !!target;
+        if (target)
+            this.actor.add_style_class_name('gwidgets-clickable');
+        else
+            this.actor.remove_style_class_name('gwidgets-clickable');
+    }
+
+    get target() {
+        return this._target ?? null;
+    }
+
     watch(source, fn) {
         this._unsubscribe.push(source.subscribe(value => {
             if (!this.dead)

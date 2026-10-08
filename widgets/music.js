@@ -11,6 +11,7 @@ import {box, label, placeholder, spacer} from '../ui.js';
 export class MusicWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
+        this.target = () => ctx.sources.media.raise();
         this.watch(ctx.sources.media, m => this._render(m));
     }
 

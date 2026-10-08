@@ -63,6 +63,7 @@ export class NotesWidget extends Widget {
     }
 
     _render(data) {
+        this.target = data?.folder ? {uri: GLib.filename_to_uri(data.folder, null)} : null;
         const add = this.button('list-add-symbolic', () => NoteDialog.open(text => this.ctx.sources.notes.add(text)),
             'gwidgets-round-button gwidgets-yellow-button', 14);
         const head = this.header(_('Notes'), 'gwidgets-yellow', add);

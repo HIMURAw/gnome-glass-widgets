@@ -26,6 +26,7 @@ function uptime(seconds) {
 export class SystemWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
+        this.target = {app: 'org.gnome.SystemMonitor.desktop'};
         this._values = {cpu: 0, memory: 0, disk: 0};
         const parts = [['cpu', _('CPU')], ['memory', _('Memory')], ['disk', _('Disk')]];
         this._texts = {};
