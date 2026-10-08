@@ -392,6 +392,7 @@ export default class GlassWidgetsExtension extends Extension {
             this._layer.set_child_above_sibling(entry.slot, null);
             entry.widget.actor.add_style_class_name('gwidgets-dragging');
             this._showGhost(entry.spec);
+            this._gallery?.collapse();
             return Clutter.EVENT_STOP;
         }
         if (type === Clutter.EventType.MOTION && this._drag?.entry === entry) {

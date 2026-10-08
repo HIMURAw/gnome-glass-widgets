@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glass Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-08 17:49+0300\n"
+"POT-Creation-Date: 2026-10-08 17:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,17 +68,25 @@ msgstr "Orta"
 msgid "Large"
 msgstr "Büyük"
 
-#: gallery.js:26 prefs.js:17
+#: gallery.js:28 prefs.js:17
 msgid "Widgets"
 msgstr "Widget'lar"
 
-#: gallery.js:27
+#: gallery.js:29
 msgid "Drag widgets to move them. Right-click one for its size."
 msgstr "Taşımak için sürükle. Boyut için widget'a sağ tıkla."
 
-#: gallery.js:29
+#: gallery.js:35
 msgid "Done"
 msgstr "Bitti"
+
+#: gallery.js:76
+msgid "Hide Widgets"
+msgstr "Galeriyi Gizle"
+
+#: gallery.js:76
+msgid "Add Widgets"
+msgstr "Widget Ekle"
 
 #: prefs.js:18
 msgid ""

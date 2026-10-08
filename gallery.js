@@ -12,7 +12,9 @@ const SIZE_NAMES = () => ({small: _('S'), medium: _('M'), large: _('L')});
 const SIZE_TITLES = () => ({small: _('Small'), medium: _('Medium'), large: _('Large')});
 
 // The sheet at the bottom of the screen while editing: every kind of widget with its
-// sizes; a size adds that widget to the first free place. Done ends editing.
+// sizes; a size adds that widget to the first free place. Done ends editing. It starts
+// as a slim bar so the widgets low on the screen can still be reached; Add Widgets opens
+// the cards, and it folds again when a widget is dragged.
 export class Gallery {
     constructor(types, {onAdd, onDone}) {
         const monitor = Main.layoutManager.primaryMonitor;
@@ -26,6 +28,10 @@ export class Gallery {
         titles.add_child(label(_('Widgets'), 'gwidgets-gallery-title'));
         titles.add_child(label(_('Drag widgets to move them. Right-click one for its size.'), 'gwidgets-dim'));
         top.add_child(titles);
+        this._toggle = new St.Button({style_class: 'gwidgets-add-toggle', can_focus: true,
+            y_align: Clutter.ActorAlign.CENTER});
+        this._toggle.connect('clicked', () => this._setOpen(!this._open));
+        top.add_child(this._toggle);
         const done = new St.Button({label: _('Done'), style_class: 'gwidgets-done', can_focus: true,
             y_align: Clutter.ActorAlign.CENTER});
         done.connect('clicked', () => onDone());
@@ -54,6 +60,8 @@ export class Gallery {
             grid.layout_manager.attach(card, i % columns, Math.floor(i / columns), 1, 1);
         });
         content.add_child(grid);
+        this._grid = grid;
+        this._setOpen(false);
 
         Main.layoutManager.addTopChrome(this.actor);
         this.actor.opacity = 0;
@@ -62,10 +70,22 @@ export class Gallery {
         this.actor.ease({opacity: 255, duration: 200, mode: Clutter.AnimationMode.EASE_OUT_QUAD});
     }
 
+    _setOpen(open) {
+        this._open = open;
+        this._grid.visible = open;
+        this._toggle.label = open ? _('Hide Widgets') : _('Add Widgets');
+    }
+
+    collapse() {
+        if (this._open)
+            this._setOpen(false);
+    }
+
     _place() {
         const monitor = Main.layoutManager.primaryMonitor;
         this.actor.set_position(monitor.x + Math.round((monitor.width - this.actor.width) / 2),
-            monitor.y + monitor.height - this.actor.height - 92);
+            // At the very bottom, over the dock (not needed while editing): the widgets keep the rest.
+            monitor.y + monitor.height - this.actor.height - 12);
         this.actor.syncBackdrop();
     }
 

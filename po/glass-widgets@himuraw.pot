@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glass Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-08 17:49+0300\n"
+"POT-Creation-Date: 2026-10-08 17:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,16 +69,24 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: gallery.js:26 prefs.js:17
+#: gallery.js:28 prefs.js:17
 msgid "Widgets"
 msgstr ""
 
-#: gallery.js:27
+#: gallery.js:29
 msgid "Drag widgets to move them. Right-click one for its size."
 msgstr ""
 
-#: gallery.js:29
+#: gallery.js:35
 msgid "Done"
+msgstr ""
+
+#: gallery.js:76
+msgid "Hide Widgets"
+msgstr ""
+
+#: gallery.js:76
+msgid "Add Widgets"
 msgstr ""
 
 #: prefs.js:18
