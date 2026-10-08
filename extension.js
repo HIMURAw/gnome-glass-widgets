@@ -113,12 +113,15 @@ export default class GlassWidgetsExtension extends Extension {
 
     // ---------- Layout ----------
 
+    // Held against the top right corner: widgets live on the right (desktop icons fill
+    // from the left), and stay against the edge whatever the screen's width.
     _grid() {
         const area = Main.layoutManager.getWorkAreaForMonitor(Main.layoutManager.primaryIndex);
+        const cols = Math.max(2, Math.floor((area.width - 2 * MARGIN + GAP) / PITCH));
         return {
-            x: area.x + MARGIN,
+            x: area.x + area.width - MARGIN - (cols * PITCH - GAP),
             y: area.y + MARGIN,
-            cols: Math.max(2, Math.floor((area.width - 2 * MARGIN + GAP) / PITCH)),
+            cols,
             rows: Math.max(2, Math.floor((area.height - 2 * MARGIN + GAP) / PITCH)),
         };
     }
@@ -211,7 +214,17 @@ export default class GlassWidgetsExtension extends Extension {
     _build() {
         this._destroyWidgets();
         const grid = this._grid();
-        for (const spec of this._load()) {
+        const specs = this._load();
+        // On a smaller screen (another monitor, a different scale, the moment of login) the
+        // whole arrangement moves left/up together instead of each widget looking for a gap.
+        // Only what is shown moves; the saved layout stays as it was.
+        const right = Math.max(0, ...specs.map(s => s.col + SIZES[s.size][0]));
+        const bottom = Math.max(0, ...specs.map(s => s.row + SIZES[s.size][1]));
+        const dx = Math.max(0, right - grid.cols);
+        const dy = Math.max(0, bottom - grid.rows);
+        for (const spec of specs) {
+            spec.col -= dx;
+            spec.row -= dy;
             spec.id ??= newId();
             if (!this._fits(spec, grid, spec.id)) {
                 const free = this._nearestFree(spec, grid, spec.id);
