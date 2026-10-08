@@ -3,6 +3,7 @@ import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js'
 import {BatteriesWidget} from './batteries.js';
 import {CalendarWidget} from './calendar.js';
 import {ClockWidget} from './clock.js';
+import {MailWidget, NetworkWidget, PhoneWidget} from './connections.js';
 import {FinanceWidget, MorningWidget, RemindersWidget} from './harvis.js';
 import {MusicWidget} from './music.js';
 import {NotesWidget} from './notes.js';
@@ -33,5 +34,11 @@ export function widgetTypes() {
             icon: 'weather-clear-symbolic', sizes: ['medium', 'large'], make: MorningWidget, harvis: true},
         {type: 'finance', name: _('Money'), description: _('Balances, this month and your goal'),
             icon: 'accessories-calculator-symbolic', sizes: ['small', 'medium'], make: FinanceWidget, harvis: true},
+        {type: 'network', name: _('Network'), description: _('Speed, the connection, ping and Tailscale'),
+            icon: 'network-wireless-symbolic', sizes: ['small', 'medium', 'large'], make: NetworkWidget},
+        {type: 'phone', name: _('Phone'), description: _('Its battery and notifications, through Harvis'),
+            icon: 'phone-symbolic', sizes: ['small', 'medium'], make: PhoneWidget, harvis: true},
+        {type: 'mail', name: _('Mail'), description: _('Unread and important mail, through Harvis'),
+            icon: 'mail-unread-symbolic', sizes: ['small', 'medium', 'large'], make: MailWidget, harvis: true},
     ];
 }

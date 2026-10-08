@@ -1,4 +1,5 @@
 import Gio from 'gi://Gio';
+import NM from 'gi://NM';
 import GLib from 'gi://GLib';
 import Shell from 'gi://Shell';
 import Soup from 'gi://Soup?version=3.0';
@@ -717,6 +718,130 @@ class CalendarSource extends Source {
     }
 }
 
+// ---------- Network (NetworkManager, the interface counters, a ping, Tailscale) ----------
+
+// Live throughput from the interface's byte counters, the connection's name and kind
+// from NetworkManager, the round trip to 1.1.1.1, and Tailscale when it is installed.
+class NetworkSource extends Source {
+    start() {
+        this._history = [];
+        this._last = null;
+        this._latency = null;
+        this._tailscale = null;
+        NM.Client.new_async(null, (_o, res) => {
+            try {
+                this._client = NM.Client.new_finish(res);
+                this._nmId = this._client.connect('notify::primary-connection', () => this._read());
+            } catch {
+                this._client = null;
+            }
+            this._read();
+        });
+        this._id = every(2, () => this._read());
+        this._ping();
+        this._pingId = every(30, () => this._ping());
+        this._tail();
+        this._tailId = every(60, () => this._tail());
+    }
+
+    stop() {
+        this._id = clear(this._id);
+        this._pingId = clear(this._pingId);
+        this._tailId = clear(this._tailId);
+        if (this._client && this._nmId)
+            this._client.disconnect(this._nmId);
+        this._client = null;
+        this._nmId = 0;
+    }
+
+    _run(argv, done) {
+        try {
+            const proc = Gio.Subprocess.new(argv, Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE);
+            proc.communicate_utf8_async(null, null, (pr, res) => {
+                try {
+                    const [, out] = pr.communicate_utf8_finish(res);
+                    done(pr.get_successful() ? out : null);
+                } catch {
+                    done(null);
+                }
+            });
+        } catch {
+            done(null);
+        }
+    }
+
+    _ping() {
+        this._run(['ping', '-c', '1', '-W', '2', '1.1.1.1'], out => {
+            const m = /time=([\d.]+)/.exec(out ?? '');
+            this._latency = m ? Number(m[1]) : null;
+        });
+    }
+
+    _tail() {
+        if (!GLib.find_program_in_path('tailscale')) {
+            this._tailscale = {installed: false};
+            return;
+        }
+        this._run(['tailscale', 'status', '--json'], out => {
+            try {
+                const s = JSON.parse(out);
+                const peers = Object.values(s.Peer ?? {});
+                this._tailscale = {installed: true, up: s.BackendState === 'Running', ip: s.Self?.TailscaleIPs?.[0] ?? '',
+                    online: peers.filter(p => p.Online).length, peers: peers.length};
+            } catch {
+                this._tailscale = {installed: true, up: false};
+            }
+        });
+    }
+
+    _read() {
+        const primary = this._client?.get_primary_connection() ?? null;
+        const device = primary?.get_devices()?.[0] ?? null;
+        const iface = device?.get_ip_iface?.() || device?.get_iface?.() || null;
+        let wifi = false;
+        let strength = null;
+        if (device instanceof NM.DeviceWifi) {
+            wifi = true;
+            strength = device.get_active_access_point()?.get_strength() ?? null;
+        }
+        let down = 0;
+        let up = 0;
+        if (iface) {
+            const read = name => {
+                try {
+                    return Number(new TextDecoder().decode(
+                        GLib.file_get_contents(`/sys/class/net/${iface}/statistics/${name}`)[1]));
+                } catch {
+                    return 0;
+                }
+            };
+            const now = GLib.get_monotonic_time() / 1e6;
+            const rx = read('rx_bytes');
+            const tx = read('tx_bytes');
+            if (this._last && this._last.iface === iface && now > this._last.t) {
+                down = Math.max(0, (rx - this._last.rx) / (now - this._last.t));
+                up = Math.max(0, (tx - this._last.tx) / (now - this._last.t));
+            }
+            this._last = {iface, rx, tx, t: now};
+        }
+        this._history.push(down);
+        if (this._history.length > 40)
+            this._history.shift();
+        this.set({
+            online: !!primary,
+            name: primary?.get_id() ?? '',
+            wifi,
+            vpn: primary?.get_vpn?.() ?? false,
+            strength,
+            down,
+            up,
+            history: [...this._history],
+            latency: this._latency,
+            tailscale: this._tailscale,
+        });
+    }
+}
+
 // ---------- All of them ----------
 
 export class Sources {
@@ -761,6 +886,10 @@ export class Sources {
 
     get calendar() {
         return this._get('calendar', () => new CalendarSource());
+    }
+
+    get network() {
+        return this._get('network', () => new NetworkSource());
     }
 
     destroy() {

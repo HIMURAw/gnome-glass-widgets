@@ -22,7 +22,7 @@ function reminderWhen(at) {
     return `${date.toLocaleDateString(undefined, {day: 'numeric', month: 'short'})} ${hhmm(date)}`;
 }
 
-class HarvisWidget extends Widget {
+export class HarvisWidget extends Widget {
     constructor(ctx, size, key) {
         super(ctx, size);
         this.watch(ctx.sources.harvis, data => {

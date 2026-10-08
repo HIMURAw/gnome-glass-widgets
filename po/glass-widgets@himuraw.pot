@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glass Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-08 15:42+0300\n"
+"POT-Creation-Date: 2026-10-08 17:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,67 +17,67 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:241 extension.js:329
+#: extension.js:277 extension.js:367
 msgid "Remove Widget"
 msgstr ""
 
-#: extension.js:277
+#: extension.js:315
 msgid "No room for a bigger widget"
 msgstr ""
 
-#: extension.js:295
+#: extension.js:333
 msgid "The desktop is full"
 msgstr ""
 
-#: extension.js:295
+#: extension.js:333
 msgid "Remove a widget to make room."
 msgstr ""
 
-#: extension.js:326
+#: extension.js:364
 msgid "Refresh"
 msgstr ""
 
-#: extension.js:328
+#: extension.js:366
 msgid "Done Editing"
 msgstr ""
 
-#: extension.js:328
+#: extension.js:366
 msgid "Edit Widgets…"
 msgstr ""
 
-#: gallery.js:10
+#: gallery.js:11
 msgid "S"
 msgstr ""
 
-#: gallery.js:10
+#: gallery.js:11
 msgid "M"
 msgstr ""
 
-#: gallery.js:10
+#: gallery.js:11
 msgid "L"
 msgstr ""
 
-#: gallery.js:11
+#: gallery.js:12
 msgid "Small"
 msgstr ""
 
-#: gallery.js:11
+#: gallery.js:12
 msgid "Medium"
 msgstr ""
 
-#: gallery.js:11
+#: gallery.js:12
 msgid "Large"
 msgstr ""
 
-#: gallery.js:25 prefs.js:17
+#: gallery.js:26 prefs.js:17
 msgid "Widgets"
 msgstr ""
 
-#: gallery.js:26
+#: gallery.js:27
 msgid "Drag widgets to move them. Right-click one for its size."
 msgstr ""
 
-#: gallery.js:28
+#: gallery.js:29
 msgid "Done"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "No batteries"
 msgstr ""
 
-#: widgets/batteries.js:71 widgets/index.js:28
+#: widgets/batteries.js:71 widgets/index.js:29
 msgid "Batteries"
 msgstr ""
 
@@ -197,6 +197,78 @@ msgstr ""
 msgid "Year %d%%"
 msgstr ""
 
+#: widgets/connections.js:31 widgets/index.js:39
+msgid "Phone"
+msgstr ""
+
+#: widgets/connections.js:36
+msgid "Open Harvis on your phone"
+msgstr ""
+
+#: widgets/connections.js:40
+msgid "Beside you"
+msgstr ""
+
+#: widgets/connections.js:40
+msgid "Connected"
+msgstr ""
+
+#: widgets/connections.js:40
+#, javascript-format
+msgid "Last seen %s"
+msgstr ""
+
+#: widgets/connections.js:65
+msgid "No notifications"
+msgstr ""
+
+#: widgets/connections.js:90 widgets/index.js:41
+msgid "Mail"
+msgstr ""
+
+#: widgets/connections.js:96
+msgid "unread"
+msgstr ""
+
+#: widgets/connections.js:97
+#, javascript-format
+msgid "%d important"
+msgstr ""
+
+#: widgets/connections.js:97
+msgid "Nothing important"
+msgstr ""
+
+#: widgets/connections.js:106
+msgid "Inbox zero"
+msgstr ""
+
+#: widgets/connections.js:183 widgets/connections.js:196
+#: widgets/connections.js:199 widgets/index.js:37
+msgid "Network"
+msgstr ""
+
+#: widgets/connections.js:183
+msgid "Offline"
+msgstr ""
+
+#: widgets/connections.js:206
+msgid "Tailscale not installed"
+msgstr ""
+
+#: widgets/connections.js:207
+#, javascript-format
+msgid "Tailscale %s · %d/%d online"
+msgstr ""
+
+#: widgets/connections.js:207
+msgid "Tailscale off"
+msgstr ""
+
+#: widgets/connections.js:214
+msgid "Signal"
+msgstr ""
+
 #: widgets/harvis.js:19
 #, javascript-format
 msgid "Today %s"
@@ -215,7 +287,7 @@ msgstr ""
 msgid "Could not read it"
 msgstr ""
 
-#: widgets/harvis.js:46 widgets/index.js:30
+#: widgets/harvis.js:46 widgets/index.js:31
 msgid "Reminders"
 msgstr ""
 
@@ -227,7 +299,7 @@ msgstr ""
 msgid "“Hey Harvis, remind me at nine tomorrow…”"
 msgstr ""
 
-#: widgets/harvis.js:78 widgets/index.js:32
+#: widgets/harvis.js:78 widgets/index.js:33
 msgid "Morning report"
 msgstr ""
 
@@ -243,7 +315,7 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: widgets/harvis.js:117 widgets/index.js:34
+#: widgets/harvis.js:117 widgets/index.js:35
 msgid "Money"
 msgstr ""
 
@@ -255,68 +327,80 @@ msgstr ""
 msgid "This month"
 msgstr ""
 
-#: widgets/index.js:16
+#: widgets/index.js:17
 msgid "Clock"
 msgstr ""
 
-#: widgets/index.js:16
+#: widgets/index.js:17
 msgid "A watch face, or the time in big digits"
 msgstr ""
 
-#: widgets/index.js:18
+#: widgets/index.js:19
 msgid "Calendar"
 msgstr ""
 
-#: widgets/index.js:18
+#: widgets/index.js:19
 msgid "Today, the month and what is coming"
 msgstr ""
 
-#: widgets/index.js:20
+#: widgets/index.js:21
 msgid "Weather"
 msgstr ""
 
-#: widgets/index.js:20
+#: widgets/index.js:21
 msgid "Now, the next hours and days"
 msgstr ""
 
-#: widgets/index.js:22 widgets/music.js:44
+#: widgets/index.js:23 widgets/music.js:44
 msgid "Music"
 msgstr ""
 
-#: widgets/index.js:22
+#: widgets/index.js:23
 msgid "What is playing, with controls"
 msgstr ""
 
-#: widgets/index.js:24 widgets/notes.js:68
+#: widgets/index.js:25 widgets/notes.js:68
 msgid "Notes"
 msgstr ""
 
-#: widgets/index.js:24
+#: widgets/index.js:25
 msgid "Your latest notes; add one"
 msgstr ""
 
-#: widgets/index.js:26 widgets/system.js:47 widgets/system.js:65
+#: widgets/index.js:27 widgets/system.js:47 widgets/system.js:65
 msgid "System"
 msgstr ""
 
-#: widgets/index.js:26
+#: widgets/index.js:27
 msgid "Processor, memory and disk"
 msgstr ""
 
-#: widgets/index.js:28
+#: widgets/index.js:29
 msgid "This computer and Bluetooth devices"
 msgstr ""
 
-#: widgets/index.js:30
+#: widgets/index.js:31
 msgid "What Harvis will remind you of"
 msgstr ""
 
-#: widgets/index.js:32
+#: widgets/index.js:33
 msgid "Harvis’s summary of today and yesterday"
 msgstr ""
 
-#: widgets/index.js:34
+#: widgets/index.js:35
 msgid "Balances, this month and your goal"
+msgstr ""
+
+#: widgets/index.js:37
+msgid "Speed, the connection, ping and Tailscale"
+msgstr ""
+
+#: widgets/index.js:39
+msgid "Its battery and notifications, through Harvis"
+msgstr ""
+
+#: widgets/index.js:41
+msgid "Unread and important mail, through Harvis"
 msgstr ""
 
 #: widgets/music.js:43

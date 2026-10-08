@@ -53,6 +53,7 @@
 .gwidgets-green { color: #30d158; }
 .gwidgets-yellow { color: #ffd60a; }
 .gwidgets-pink { color: #ff375f; }
+.gwidgets-blue { color: #64b5ff; }
 
 .gwidgets-dim {
   color: rgba(245, 245, 247, 0.58);
@@ -711,4 +712,125 @@
 
 .gwidgets-size-chip:focus {
   box-shadow: inset 0 0 0 2px -st-accent-color;
+}
+
+/* ---------- Connections ---------- */
+
+.gwidgets-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  margin-top: 4px;
+  background-color: rgba(245, 245, 247, 0.3);
+}
+
+.gwidgets-dot-on {
+  background-color: #30d158;
+}
+
+.gwidgets-dot-important {
+  background-color: #ff9f0a;
+}
+
+.gwidgets-phone-left {
+  spacing: 2px;
+}
+
+.gwidgets-phone-level {
+  font-size: 14px;
+  font-weight: 800;
+  font-feature-settings: "tnum";
+}
+
+.gwidgets-phone-state {
+  spacing: 6px;
+}
+
+.gwidgets-phone-row {
+  spacing: 16px;
+}
+
+.gwidgets-phone-notes {
+  spacing: 6px;
+}
+
+.gwidgets-phone-app {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64b5ff;
+}
+
+.gwidgets-phone-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.gwidgets-mail-count {
+  spacing: 0;
+}
+
+.gwidgets-mail-big {
+  font-size: 40px;
+  font-weight: 300;
+  font-feature-settings: "tnum";
+}
+
+.gwidgets-mail-important {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ff9f0a;
+}
+
+.gwidgets-mail-cols {
+  spacing: 16px;
+}
+
+.gwidgets-mail-list {
+  spacing: 8px;
+}
+
+.gwidgets-mail-row {
+  spacing: 8px;
+}
+
+.gwidgets-mail-from {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.gwidgets-net-name {
+  spacing: 6px;
+  color: rgba(245, 245, 247, 0.85);
+}
+
+.gwidgets-net-ssid {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gwidgets-net-speeds {
+  spacing: 14px;
+}
+
+.gwidgets-net-speed {
+  spacing: 4px;
+}
+
+.gwidgets-net-arrow {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.gwidgets-net-value {
+  font-size: 24px;
+  font-weight: 300;
+  font-feature-settings: "tnum";
+}
+
+.gwidgets-net-tail {
+  spacing: 6px;
+}
+
+.gwidgets-net-signal {
+  spacing: 3px;
 }
