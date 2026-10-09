@@ -43,8 +43,11 @@ const NoteDialog = class {
             {label: _('Cancel'), action: () => dialog.close(), key: Clutter.KEY_Escape},
             {label: _('Save'), action: save, default: true},
         ]);
-        dialog.open();
+        // The default button would otherwise take the key focus and the typing would go nowhere:
+        // give it to the entry before opening and again once the dialog is up.
         dialog.setInitialKeyFocus(entry);
+        dialog.connect('opened', () => entry.grab_key_focus());
+        dialog.open();
     }
 };
 
