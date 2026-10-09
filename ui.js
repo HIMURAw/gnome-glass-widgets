@@ -138,6 +138,26 @@ export function paintBar(cr, w, h, value, color) {
         bar(w * v, 1);
 }
 
+// A small line chart of values, with a soft fill under it. color: [r, g, b].
+export function paintLine(cr, w, h, values, color) {
+    if (!values?.length || values.length < 2)
+        return;
+    const lo = Math.min(...values), hi = Math.max(...values), span = hi - lo || 1;
+    const x = i => i / (values.length - 1) * (w - 2) + 1;
+    const y = v => h - 2 - (v - lo) / span * (h - 4);
+    cr.setLineWidth(1.5);
+    cr.setLineJoin(Cairo.LineJoin.ROUND);
+    cr.moveTo(x(0), y(values[0]));
+    values.forEach((v, i) => cr.lineTo(x(i), y(v)));
+    cr.setSourceRGBA(...color, 1);
+    cr.strokePreserve();
+    cr.lineTo(x(values.length - 1), h);
+    cr.lineTo(x(0), h);
+    cr.closePath();
+    cr.setSourceRGBA(...color, 0.14);
+    cr.fill();
+}
+
 export function money(n) {
     if (n === null || n === undefined || Number.isNaN(n))
         return '—';

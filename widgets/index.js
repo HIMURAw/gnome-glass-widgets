@@ -4,7 +4,7 @@ import {BatteriesWidget} from './batteries.js';
 import {CalendarWidget} from './calendar.js';
 import {ClockWidget} from './clock.js';
 import {MailWidget, NetworkWidget, PhoneWidget} from './connections.js';
-import {FinanceWidget, MorningWidget, RemindersWidget} from './harvis.js';
+import {MarketsWidget, MorningWidget, RemindersWidget} from './harvis.js';
 import {MusicWidget} from './music.js';
 import {NotesWidget} from './notes.js';
 import {SystemWidget} from './system.js';
@@ -32,8 +32,8 @@ export function widgetTypes() {
             icon: 'alarm-symbolic', sizes: ['small', 'medium'], make: RemindersWidget, harvis: true},
         {type: 'morning', name: _('Morning report'), description: _('Harvis’s summary of today and yesterday'),
             icon: 'weather-clear-symbolic', sizes: ['medium', 'large'], make: MorningWidget, harvis: true},
-        {type: 'finance', name: _('Money'), description: _('Balances, this month and your goal'),
-            icon: 'accessories-calculator-symbolic', sizes: ['small', 'medium'], make: FinanceWidget, harvis: true},
+        {type: 'markets', name: _('Investments'), description: _('Gold, what you own and what you watch'),
+            icon: 'power-profile-performance-symbolic', sizes: ['small', 'medium', 'large'], make: MarketsWidget, harvis: true},
         {type: 'network', name: _('Network'), description: _('Speed, the connection, ping and Tailscale'),
             icon: 'network-wireless-symbolic', sizes: ['small', 'medium', 'large'], make: NetworkWidget},
         {type: 'phone', name: _('Phone'), description: _('Its battery and notifications, through Harvis'),

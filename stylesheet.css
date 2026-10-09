@@ -567,48 +567,59 @@
   line-height: 1.2;
 }
 
-.gwidgets-finance-total {
-  spacing: 0;
+.gwidgets-market-list {
+  spacing: 7px;
 }
 
-.gwidgets-finance-big {
-  font-size: 26px;
-  font-weight: 300;
-  font-feature-settings: "tnum";
-}
-
-.gwidgets-finance-month {
+.gwidgets-market-row {
   spacing: 10px;
 }
 
-.gwidgets-finance-in {
-  font-size: 12px;
+.gwidgets-market-name-box {
+  spacing: 5px;
+}
+
+.gwidgets-market-owned {
+  font-size: 7px;
+  color: #ff9f0a;
+  min-width: 7px;
+}
+
+.gwidgets-market-name {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.gwidgets-market-right {
+  spacing: 0;
+  min-width: 78px;
+}
+
+.gwidgets-market-price {
+  font-size: 12.5px;
   font-weight: 700;
-  color: #30d158;
+  font-feature-settings: "tnum";
 }
 
-.gwidgets-finance-out {
-  font-size: 12px;
+.gwidgets-market-up,
+.gwidgets-market-down,
+.gwidgets-market-flat {
+  font-size: 10.5px;
   font-weight: 700;
-  color: #ff6961;
+  font-feature-settings: "tnum";
 }
 
-.gwidgets-finance-cols {
-  spacing: 16px;
+.gwidgets-market-up { color: #30d158; }
+.gwidgets-market-down { color: #ff6961; }
+.gwidgets-market-flat { color: rgba(245, 245, 247, 0.5); }
+
+.gwidgets-market-hero {
+  spacing: 2px;
 }
 
-.gwidgets-finance-right {
-  spacing: 6px;
-}
-
-.gwidgets-finance-name {
-  font-size: 12px;
-  color: rgba(245, 245, 247, 0.72);
-}
-
-.gwidgets-finance-amount {
-  font-size: 12px;
-  font-weight: 700;
+.gwidgets-market-big {
+  font-size: 24px;
+  font-weight: 300;
   font-feature-settings: "tnum";
 }
 

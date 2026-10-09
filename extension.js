@@ -145,6 +145,8 @@ export default class GlassWidgetsExtension extends Extension {
         }
         if (!Array.isArray(specs))
             specs = this._defaultLayout();
+        // The money widget became the investments one: same place, same size.
+        specs = specs.map(s => (s.type === 'finance' ? {...s, type: 'markets'} : s));
         return specs.filter(s => this._types.has(s.type) && SIZES[s.size]);
     }
 
