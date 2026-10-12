@@ -1,6 +1,7 @@
 import Clutter from 'gi://Clutter';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
+import Pango from 'gi://Pango';
 import St from 'gi://St';
 
 import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
@@ -51,6 +52,49 @@ const NoteDialog = class {
     }
 };
 
+// A note in full, with Delete (asks once more) and Open in the notes app.
+const NoteView = class {
+    static open(note, {read, onDelete, onOpen}) {
+        const dialog = new ModalDialog.ModalDialog({styleClass: 'gwidgets-note-dialog gwidgets-note-view'});
+        const head = box(false, 'gwidgets-note-view-head');
+        head.add_child(label(note.title, 'gwidgets-note-dialog-title', {x_expand: true}));
+        head.add_child(label(ago(note.modified), 'gwidgets-dim gwidgets-tiny', {y_align: Clutter.ActorAlign.START}));
+        dialog.contentLayout.add_child(head);
+
+        const text = new St.Label({text: read(note.path) || note.text, style_class: 'gwidgets-note-view-text'});
+        text.clutter_text.line_wrap = true;
+        text.clutter_text.line_wrap_mode = Pango.WrapMode.WORD_CHAR;
+        text.clutter_text.ellipsize = Pango.EllipsizeMode.NONE;
+        const column = box(true, '', {x_expand: true});
+        column.add_child(text);
+        const scroll = new St.ScrollView({style_class: 'gwidgets-note-view-scroll', x_expand: true, y_expand: true,
+            hscrollbar_policy: St.PolicyType.NEVER, vscrollbar_policy: St.PolicyType.AUTOMATIC});
+        scroll.set_child(column);
+        dialog.contentLayout.add_child(scroll);
+
+        let sure = false;
+        const remove = dialog.addButton({
+            label: _('Delete'),
+            action: () => {
+                if (!sure) {
+                    sure = true;
+                    remove.label = _('Move to trash?');
+                    remove.add_style_class_name('gwidgets-danger');
+                    return;
+                }
+                dialog.close();
+                onDelete();
+            },
+        });
+        dialog.addButton({label: _('Open'), action: () => {
+            dialog.close();
+            onOpen();
+        }});
+        dialog.addButton({label: _('Close'), action: () => dialog.close(), key: Clutter.KEY_Escape, default: true});
+        dialog.open();
+    }
+};
+
 export class NotesWidget extends Widget {
     constructor(ctx, size) {
         super(ctx, size);
@@ -63,6 +107,15 @@ export class NotesWidget extends Widget {
         } catch (e) {
             console.error('Glass Widgets: could not open the note', e);
         }
+    }
+
+    _show(note) {
+        const notes = this.ctx.sources.notes;
+        NoteView.open(note, {
+            read: path => notes.read(path),
+            onDelete: () => notes.remove(note.path),
+            onOpen: () => this._open(note.path),
+        });
     }
 
     _render(data) {
@@ -84,7 +137,7 @@ export class NotesWidget extends Widget {
             const col = box(true, '', {x_expand: true});
             col.add_child(paragraph(n.text, 'gwidgets-note-text', 110));
             note.child = col;
-            note.connect('clicked', () => this._open(n.path));
+            note.connect('clicked', () => this._show(n));
             this.fill(head, note, spacer(), label(ago(n.modified), 'gwidgets-dim gwidgets-tiny'));
             return;
         }
@@ -99,7 +152,7 @@ export class NotesWidget extends Widget {
             if (n.text !== n.title)
                 col.add_child(label(n.text, 'gwidgets-dim'));
             row.child = col;
-            row.connect('clicked', () => this._open(n.path));
+            row.connect('clicked', () => this._show(n));
             list.add_child(row);
         });
         this.fill(head, list);

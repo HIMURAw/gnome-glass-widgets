@@ -432,6 +432,10 @@
   spacing: 2px;
 }
 
+.gwidgets-music-corner {
+  spacing: 6px;
+}
+
 .gwidgets-music-app {
   spacing: 6px;
   margin-bottom: 4px;
@@ -475,7 +479,6 @@
 .gwidgets-note-row {
   border-radius: 10px;
   padding: 4px 6px;
-  margin: 0 -6px;
   transition-duration: 120ms;
 }
 
@@ -511,6 +514,30 @@
 
 .gwidgets-note-entry {
   min-height: 80px;
+}
+
+.gwidgets-note-view {
+  min-width: 460px;
+  max-width: 560px;
+}
+
+.gwidgets-note-view-head {
+  spacing: 12px;
+}
+
+.gwidgets-note-view-scroll {
+  max-height: 380px;
+}
+
+.gwidgets-note-view-text {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.gwidgets-danger,
+.gwidgets-danger:focus {
+  color: #ff453a;
+  font-weight: 700;
 }
 
 /* ---------- Harvis ---------- */

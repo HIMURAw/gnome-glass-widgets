@@ -381,6 +381,29 @@ class NotesSource extends Source {
         })});
     }
 
+    // A note's whole text, lines kept, without the signature line.
+    read(path) {
+        try {
+            const [, bytes] = GLib.file_get_contents(path);
+            return new TextDecoder().decode(bytes).split('\n').filter(l => !/^—\s*\d{4}-/.test(l.trim()))
+                .join('\n').trim();
+        } catch {
+            return '';
+        }
+    }
+
+    // To the trash, not gone: a note deleted by mistake can be brought back.
+    remove(path) {
+        try {
+            Gio.File.new_for_path(path).trash(null);
+            this._read();
+            return true;
+        } catch (e) {
+            console.error('Glass Widgets: could not move the note to the trash', e);
+            return false;
+        }
+    }
+
     // Saved the way Dynamic Island's quick notes are, so both land in the same inbox.
     add(text) {
         const folder = this.folder();
