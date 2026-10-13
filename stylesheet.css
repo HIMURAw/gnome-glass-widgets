@@ -12,16 +12,18 @@
 }
 
 .gwidgets-widget {
-  border: 1px solid rgba(168, 132, 255, 0.6);
+  /* drawn by glass.js along the rounded edge */
+  border: 1px solid transparent;
+  -glass-frame-color: rgba(168, 132, 255, 0.6);
   color: #f5f5f7;
 }
 
 .gwidgets-editing {
-  border: 1px solid rgba(190, 160, 255, 0.85);
+  -glass-frame-color: rgba(190, 160, 255, 0.85);
 }
 
 .gwidgets-dragging {
-  border: 1px solid rgba(215, 195, 255, 1);
+  -glass-frame-color: rgba(215, 195, 255, 1);
 }
 
 .gwidgets-body {
