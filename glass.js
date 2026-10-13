@@ -1,4 +1,5 @@
 import Clutter from 'gi://Clutter';
+import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Shell from 'gi://Shell';
 import St from 'gi://St';
@@ -6,6 +7,9 @@ import St from 'gi://St';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 const BLUR_RADIUS = 20;
+// What is behind a widget (the wallpaper, a video since 2026-10-13) is re-blurred at most this often
+// (ms). A live wallpaper changes every frame; re-blurring 12 widgets that often cost the shell ~13 %.
+const REFRESH = 1000;
 
 // Blur is the costly part; with it off every glass is a plain dark surface.
 // Set before building any glass (the extension rebuilds when it changes).
@@ -114,6 +118,44 @@ function themeFrame(actor) {
     return [[ch('red'), ch('green'), ch('blue'), ch('alpha')], hasWidth ? width : 1];
 }
 
+// Keeps the last blurred picture and repaints it, instead of rendering and blurring the wallpaper
+// again, when it changed less than REFRESH ago; the late change is picked up when the time is up.
+// A move or resize of the widget repaints at once (dragging stays smooth).
+const Throttle = GObject.registerClass(
+class Throttle extends Clutter.OffscreenEffect {
+    _init() {
+        super._init();
+        this._last = 0;
+        this._timer = 0;
+        this.force = true;
+    }
+
+    vfunc_paint(node, paintContext, flags) {
+        const now = GLib.get_monotonic_time() / 1000;
+        if ((flags & Clutter.EffectPaintFlags.ACTOR_DIRTY) && !this.force && now - this._last < REFRESH) {
+            flags &= ~Clutter.EffectPaintFlags.ACTOR_DIRTY;
+            if (!this._timer) {
+                this._timer = GLib.timeout_add(GLib.PRIORITY_LOW, REFRESH - (now - this._last), () => {
+                    this._timer = 0;
+                    this.force = true;
+                    this.actor?.queue_redraw();
+                    return GLib.SOURCE_REMOVE;
+                });
+            }
+        } else if (flags & Clutter.EffectPaintFlags.ACTOR_DIRTY) {
+            this._last = now;
+            this.force = false;
+        }
+        super.vfunc_paint(node, paintContext, flags);
+    }
+
+    stop() {
+        if (this._timer)
+            GLib.source_remove(this._timer);
+        this._timer = 0;
+    }
+});
+
 // The wallpaper behind the widget, blurred. Widgets live among the windows (below
 // all of them), so unlike the island and the dock they cannot clone the window
 // group, which holds them; the background group is what is under them anyway.
@@ -133,7 +175,11 @@ class Backdrop extends St.Widget {
         this.add_child(this._clone);
         this.add_child(this._tint);
         this._blur = new Shell.BlurEffect({mode: Shell.BlurMode.ACTOR, radius: BLUR_RADIUS, brightness: 0.85});
+        // Outermost, so a kept picture skips the wallpaper and the blur alike.
+        this._throttle = new Throttle();
+        this.add_effect(this._throttle);
         this.add_effect(this._blur);
+        this.connect('destroy', () => this._throttle.stop());
     }
 
     vfunc_get_preferred_width(_forHeight) {
@@ -154,6 +200,11 @@ class Backdrop extends St.Widget {
         const x = px + box.x1;
         const y = py + box.y1;
         const [w, h] = global.stage.get_size();
+        const key = `${x},${y},${box.get_width()},${box.get_height()},${w},${h}`;
+        if (key !== this._key) {
+            this._key = key;
+            this._throttle.force = true;
+        }
         this._clone.allocate(new Clutter.ActorBox({x1: -x, y1: -y, x2: -x + w, y2: -y + h}));
         const side = Math.min(box.get_width(), box.get_height());
         this._blur.enabled = side >= 4;

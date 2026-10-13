@@ -63,7 +63,9 @@ export function layered(area, ...overlays) {
     return stack;
 }
 
-const FRAME = 33;
+// Decorative motion (the weather icon, the equaliser) at 12 fps: slow movements look the same, and
+// while the desktop is in front every frame recomposites the whole screen (12 widgets, a video).
+const FRAME = 83;
 
 // An animation loop that runs only while the actor is on screen and the desktop is in
 // front (widgets behind a focused window keep still).
