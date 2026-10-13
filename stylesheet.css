@@ -4,24 +4,24 @@
    seconds hand, the notes' yellow paper, Harvis's green brain. */
 
 .gwidgets-tint {
-  background-color: rgba(24, 24, 28, 0.42);
+  background-color: rgba(27, 22, 44, 0.44);
 }
 
 .gwidgets-solid {
-  background-color: rgba(30, 30, 34, 0.94);
+  background-color: rgba(32, 27, 48, 0.94);
 }
 
 .gwidgets-widget {
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(168, 132, 255, 0.6);
   color: #f5f5f7;
 }
 
 .gwidgets-editing {
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(190, 160, 255, 0.85);
 }
 
 .gwidgets-dragging {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(215, 195, 255, 1);
 }
 
 .gwidgets-body {

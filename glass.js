@@ -5,7 +5,7 @@ import St from 'gi://St';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
-const BLUR_RADIUS = 40;
+const BLUR_RADIUS = 20;
 
 // Blur is the costly part; with it off every glass is a plain dark surface.
 // Set before building any glass (the extension rebuilds when it changes).
