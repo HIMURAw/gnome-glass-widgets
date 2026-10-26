@@ -13,6 +13,7 @@ import {launch} from './ui.js';
 import {Sources} from './sources.js';
 import {CELL, GAP, SIZES} from './widget.js';
 import {widgetTypes} from './widgets/index.js';
+import {ThemedStylesheet} from './theme.js';
 
 const MARGIN = 28;
 const TOP = 64;
@@ -41,6 +42,8 @@ function newId() {
 export default class GlassWidgetsExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
+        // The colour theme (tema-rengi), live: the stylesheet is violet, a recoloured copy is loaded.
+        this._theme = new ThemedStylesheet(this);
         // Editing is never where a session starts (it may be left on by a crash or a logout mid-edit).
         if (this._settings.get_boolean('editing'))
             this._settings.set_boolean('editing', false);
@@ -98,6 +101,8 @@ export default class GlassWidgetsExtension extends Extension {
     }
 
     disable() {
+        this._theme?.destroy();
+        this._theme = null;
         this._setEditing(false);
         this._signals.forEach(([obj, id]) => obj.disconnect(id));
         this._signals = [];
