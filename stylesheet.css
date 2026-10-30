@@ -1,7 +1,7 @@
 /* Glass Widgets: the same dark frosted glass as Dynamic Island and Glass Dock.
    The blur comes from glass.js; these rules add the tint, a hairline and the details.
    One accent per widget, from its subject: the calendar's red page, the watch's orange
-   seconds hand, the notes' yellow paper, Harvis's green brain. */
+   seconds hand, the notes' yellow paper. */
 
 .gwidgets-tint {
   background-color: rgba(27, 22, 44, 0.44);
@@ -542,116 +542,6 @@
   font-weight: 700;
 }
 
-/* ---------- Harvis ---------- */
-
-.gwidgets-reminder-list {
-  spacing: 10px;
-}
-
-.gwidgets-reminder {
-  spacing: 10px;
-}
-
-.gwidgets-reminder-ring {
-  width: 12px;
-  height: 12px;
-  border-radius: 7px;
-  border: 2px solid #30d158;
-  margin-top: 2px;
-}
-
-.gwidgets-reminder-text {
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.gwidgets-morning-section {
-  spacing: 4px;
-  margin-top: 4px;
-}
-
-.gwidgets-morning-title {
-  font-size: 12px;
-  font-weight: 800;
-  color: rgba(245, 245, 247, 0.85);
-}
-
-.gwidgets-morning-row {
-  spacing: 8px;
-}
-
-.gwidgets-morning-mark {
-  font-size: 12px;
-  color: rgba(245, 245, 247, 0.5);
-  width: 10px;
-}
-
-.gwidgets-morning-num {
-  font-weight: 800;
-  color: #30d158;
-}
-
-.gwidgets-morning-text {
-  font-size: 12.5px;
-  line-height: 1.2;
-}
-
-.gwidgets-market-list {
-  spacing: 7px;
-}
-
-.gwidgets-market-row {
-  spacing: 10px;
-}
-
-.gwidgets-market-name-box {
-  spacing: 5px;
-}
-
-.gwidgets-market-owned {
-  font-size: 7px;
-  color: #ff9f0a;
-  min-width: 7px;
-}
-
-.gwidgets-market-name {
-  font-size: 12.5px;
-  font-weight: 600;
-}
-
-.gwidgets-market-right {
-  spacing: 0;
-  min-width: 78px;
-}
-
-.gwidgets-market-price {
-  font-size: 12.5px;
-  font-weight: 700;
-  font-feature-settings: "tnum";
-}
-
-.gwidgets-market-up,
-.gwidgets-market-down,
-.gwidgets-market-flat {
-  font-size: 10.5px;
-  font-weight: 700;
-  font-feature-settings: "tnum";
-}
-
-.gwidgets-market-up { color: #30d158; }
-.gwidgets-market-down { color: #ff6961; }
-.gwidgets-market-flat { color: rgba(245, 245, 247, 0.5); }
-
-.gwidgets-market-hero {
-  spacing: 2px;
-}
-
-.gwidgets-market-big {
-  font-size: 24px;
-  font-weight: 300;
-  font-feature-settings: "tnum";
-}
-
 /* ---------- Editing ---------- */
 
 .gwidgets-scrim {
@@ -779,76 +669,6 @@
 
 .gwidgets-dot-on {
   background-color: #30d158;
-}
-
-.gwidgets-dot-important {
-  background-color: #ff9f0a;
-}
-
-.gwidgets-phone-left {
-  spacing: 2px;
-}
-
-.gwidgets-phone-level {
-  font-size: 14px;
-  font-weight: 800;
-  font-feature-settings: "tnum";
-}
-
-.gwidgets-phone-state {
-  spacing: 6px;
-}
-
-.gwidgets-phone-row {
-  spacing: 16px;
-}
-
-.gwidgets-phone-notes {
-  spacing: 6px;
-}
-
-.gwidgets-phone-app {
-  font-size: 11px;
-  font-weight: 800;
-  color: #64b5ff;
-}
-
-.gwidgets-phone-title {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.gwidgets-mail-count {
-  spacing: 0;
-}
-
-.gwidgets-mail-big {
-  font-size: 40px;
-  font-weight: 300;
-  font-feature-settings: "tnum";
-}
-
-.gwidgets-mail-important {
-  font-size: 12px;
-  font-weight: 800;
-  color: #ff9f0a;
-}
-
-.gwidgets-mail-cols {
-  spacing: 16px;
-}
-
-.gwidgets-mail-list {
-  spacing: 8px;
-}
-
-.gwidgets-mail-row {
-  spacing: 8px;
-}
-
-.gwidgets-mail-from {
-  font-size: 12px;
-  font-weight: 800;
 }
 
 .gwidgets-net-name {

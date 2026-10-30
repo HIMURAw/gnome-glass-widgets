@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Glass Widgets\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-12 23:35+0300\n"
+"POT-Creation-Date: 2026-10-30 11:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:280 extension.js:370
+#: extension.js:281 extension.js:370
 msgid "Remove Widget"
 msgstr "Widget'ı Kaldır"
 
-#: extension.js:318
+#: extension.js:319
 msgid "No room for a bigger widget"
 msgstr "Daha büyük widget için yer yok"
 
-#: extension.js:336
+#: extension.js:337
 msgid "The desktop is full"
 msgstr "Masaüstü dolu"
 
-#: extension.js:336
+#: extension.js:337
 msgid "Remove a widget to make room."
 msgstr "Yer açmak için bir widget kaldır."
 
-#: extension.js:367
+#: extension.js:368
 msgid "Refresh"
 msgstr "Yenile"
 
@@ -154,10 +154,6 @@ msgstr "Notlar klasörü"
 msgid "Choose a folder"
 msgstr "Klasör seç"
 
-#: prefs.js:73
-msgid "Harvis command (reminders, morning report, money)"
-msgstr "Harvis komutu (hatırlatmalar, sabah raporu, para)"
-
 #: widgets/batteries.js:26
 msgid "This computer"
 msgstr "Bu bilgisayar"
@@ -166,7 +162,7 @@ msgstr "Bu bilgisayar"
 msgid "No batteries"
 msgstr "Pil yok"
 
-#: widgets/batteries.js:72 widgets/index.js:29
+#: widgets/batteries.js:72 widgets/index.js:27
 msgid "Batteries"
 msgstr "Piller"
 
@@ -205,220 +201,91 @@ msgstr "Gün %%%d"
 msgid "Year %d%%"
 msgstr "Yıl %%%d"
 
-#: widgets/connections.js:31 widgets/index.js:39
-msgid "Phone"
-msgstr "Telefon"
-
-#: widgets/connections.js:36
-msgid "Open Harvis on your phone"
-msgstr "Telefonda Harvis'i aç"
-
-#: widgets/connections.js:41
-msgid "Beside you"
-msgstr "Yanında"
-
-#: widgets/connections.js:41
-msgid "Connected"
-msgstr "Bağlı"
-
-#: widgets/connections.js:41
-#, javascript-format
-msgid "Last seen %s"
-msgstr "Son görülme %s"
-
-#: widgets/connections.js:66
-msgid "No notifications"
-msgstr "Bildirim yok"
-
-#: widgets/connections.js:91 widgets/index.js:41
-msgid "Mail"
-msgstr "Mail"
-
-#: widgets/connections.js:99
-msgid "unread"
-msgstr "okunmamış"
-
-#: widgets/connections.js:100
-#, javascript-format
-msgid "%d important"
-msgstr "%d önemli"
-
-#: widgets/connections.js:100
-msgid "Nothing important"
-msgstr "Önemli bir şey yok"
-
-#: widgets/connections.js:109
-msgid "Inbox zero"
-msgstr "Gelen kutusu boş"
-
-#: widgets/connections.js:187 widgets/connections.js:202
-#: widgets/connections.js:205 widgets/index.js:37
+#: widgets/connections.js:66 widgets/connections.js:81
+#: widgets/connections.js:84 widgets/index.js:29
 msgid "Network"
 msgstr "Ağ"
 
-#: widgets/connections.js:187
+#: widgets/connections.js:66
 msgid "Offline"
 msgstr "Çevrimdışı"
 
-#: widgets/connections.js:195
+#: widgets/connections.js:74
 msgid "Data saver"
 msgstr "Tasarruf"
 
-#: widgets/connections.js:212
+#: widgets/connections.js:91
 msgid "Tailscale not installed"
 msgstr "Tailscale kurulu değil"
 
-#: widgets/connections.js:213
+#: widgets/connections.js:92
 #, javascript-format
 msgid "Tailscale %s · %d/%d online"
 msgstr "Tailscale %s · %d/%d çevrimiçi"
 
-#: widgets/connections.js:213
+#: widgets/connections.js:92
 msgid "Tailscale off"
 msgstr "Tailscale kapalı"
 
-#: widgets/connections.js:220
+#: widgets/connections.js:99
 msgid "Signal"
 msgstr "Sinyal"
 
-#: widgets/harvis.js:19
-#, javascript-format
-msgid "Today %s"
-msgstr "Bugün %s"
-
-#: widgets/harvis.js:21
-#, javascript-format
-msgid "Tomorrow %s"
-msgstr "Yarın %s"
-
-#: widgets/harvis.js:31
-msgid "Harvis is not available"
-msgstr "Harvis bulunamadı"
-
-#: widgets/harvis.js:33
-msgid "Could not read it"
-msgstr "Okunamadı"
-
-#: widgets/harvis.js:48 widgets/index.js:31
-msgid "Reminders"
-msgstr "Hatırlatmalar"
-
-#: widgets/harvis.js:54
-msgid "Nothing to remember"
-msgstr "Hatırlatılacak bir şey yok"
-
-#: widgets/harvis.js:55
-msgid "“Hey Harvis, remind me at nine tomorrow…”"
-msgstr "“Hey Harvis, yarın dokuzda hatırlat…”"
-
-#: widgets/harvis.js:80 widgets/index.js:33
-msgid "Morning report"
-msgstr "Sabah raporu"
-
-#: widgets/harvis.js:85
-msgid "No report yet today"
-msgstr "Bugün henüz rapor yok"
-
-#: widgets/harvis.js:102 widgets/weather.js:214
-msgid "Today"
-msgstr "Bugün"
-
-#: widgets/harvis.js:104
-msgid "Yesterday"
-msgstr "Dün"
-
-#: widgets/harvis.js:139 widgets/index.js:35
-msgid "Investments"
-msgstr "Yatırımlar"
-
-#: widgets/harvis.js:150
-msgid "Nothing to show yet"
-msgstr "Henüz gösterilecek bir şey yok"
-
-#: widgets/harvis.js:153
-#, javascript-format
-msgid "%s · 15 min delay"
-msgstr "%s · 15 dk gecikmeli"
-
-#: widgets/harvis.js:187
-msgid "cost"
-msgstr "maliyet"
-
-#: widgets/index.js:17
+#: widgets/index.js:15
 msgid "Clock"
 msgstr "Saat"
 
-#: widgets/index.js:17
+#: widgets/index.js:15
 msgid "A watch face, or the time in big digits"
 msgstr "Kol saati ya da büyük rakamlarla saat"
 
-#: widgets/index.js:19
+#: widgets/index.js:17
 msgid "Calendar"
 msgstr "Takvim"
 
-#: widgets/index.js:19
+#: widgets/index.js:17
 msgid "Today, the month and what is coming"
 msgstr "Bugün, ay ve yaklaşanlar"
 
-#: widgets/index.js:21
+#: widgets/index.js:19
 msgid "Weather"
 msgstr "Hava Durumu"
 
-#: widgets/index.js:21
+#: widgets/index.js:19
 msgid "Now, the next hours and days"
 msgstr "Şimdi, sonraki saatler ve günler"
 
-#: widgets/index.js:23 widgets/music.js:101
+#: widgets/index.js:21 widgets/music.js:101
 msgid "Music"
 msgstr "Müzik"
 
-#: widgets/index.js:23
+#: widgets/index.js:21
 msgid "What is playing, with controls"
 msgstr "Çalan şarkı ve kontroller"
 
-#: widgets/index.js:25 widgets/notes.js:125
+#: widgets/index.js:23 widgets/notes.js:125
 msgid "Notes"
 msgstr "Notlar"
 
-#: widgets/index.js:25
+#: widgets/index.js:23
 msgid "Your latest notes; add one"
 msgstr "Son notların; yenisini ekle"
 
-#: widgets/index.js:27 widgets/system.js:48 widgets/system.js:66
+#: widgets/index.js:25 widgets/system.js:48 widgets/system.js:66
 msgid "System"
 msgstr "Sistem"
 
-#: widgets/index.js:27
+#: widgets/index.js:25
 msgid "Processor, memory and disk"
 msgstr "İşlemci, bellek ve disk"
 
-#: widgets/index.js:29
+#: widgets/index.js:27
 msgid "This computer and Bluetooth devices"
 msgstr "Bu bilgisayar ve Bluetooth cihazları"
 
-#: widgets/index.js:31
-msgid "What Harvis will remind you of"
-msgstr "Harvis'in sana hatırlatacakları"
-
-#: widgets/index.js:33
-msgid "Harvis’s summary of today and yesterday"
-msgstr "Harvis'in bugün ve dün özeti"
-
-#: widgets/index.js:35
-msgid "Gold, what you own and what you watch"
-msgstr "Altın, sahip oldukların ve izlediklerin"
-
-#: widgets/index.js:37
+#: widgets/index.js:29
 msgid "Speed, the connection, ping and Tailscale"
 msgstr "Hız, bağlantı, ping ve Tailscale"
-
-#: widgets/index.js:39
-msgid "Its battery and notifications, through Harvis"
-msgstr "Şarjı ve bildirimleri, Harvis üzerinden"
-
-#: widgets/index.js:41
-msgid "Unread and important mail, through Harvis"
-msgstr "Okunmamış ve önemli mailler, Harvis üzerinden"
 
 #: widgets/music.js:100
 msgid "Nothing playing"
@@ -543,14 +410,6 @@ msgstr "Y:%d°  D:%d°"
 msgid "Now"
 msgstr "Şimdi"
 
-#~ msgid "Money"
-#~ msgstr "Para"
-
-#~ msgid "Total"
-#~ msgstr "Toplam"
-
-#~ msgid "This month"
-#~ msgstr "Bu ay"
-
-#~ msgid "Balances, this month and your goal"
-#~ msgstr "Bakiyeler, bu ay ve hedefin"
+#: widgets/weather.js:214
+msgid "Today"
+msgstr "Bugün"

@@ -150,13 +150,11 @@ export default class GlassWidgetsExtension extends Extension {
         }
         if (!Array.isArray(specs))
             specs = this._defaultLayout();
-        // The money widget became the investments one: same place, same size.
-        specs = specs.map(s => (s.type === 'finance' ? {...s, type: 'markets'} : s));
         return specs.filter(s => this._types.has(s.type) && SIZES[s.size]);
     }
 
     // To begin with, on the right where desktop icons are not: the weather, today, a
-    // clock and the music; Harvis's morning report next to them when Harvis is there.
+    // clock and the music.
     _defaultLayout() {
         const {cols} = this._grid();
         const specs = [
@@ -165,8 +163,6 @@ export default class GlassWidgetsExtension extends Extension {
             {type: 'clock', size: 'small', col: cols - 1, row: 1},
             {type: 'music', size: 'medium', col: cols - 2, row: 2},
         ];
-        if (this._sources.harvis.available)
-            specs.push({type: 'morning', size: 'large', col: cols - 4, row: 0});
         return specs.map(s => ({id: newId(), ...s}));
     }
 
@@ -368,9 +364,8 @@ export default class GlassWidgetsExtension extends Extension {
             }
             menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         }
-        if (entry.spec.type === 'weather' || type.harvis) {
-            menu.addAction(_('Refresh'), () => (type.harvis ? this._sources.harvis : this._sources.weather).refresh());
-        }
+        if (entry.spec.type === 'weather')
+            menu.addAction(_('Refresh'), () => this._sources.weather.refresh());
         menu.addAction(this._editing ? _('Done Editing') : _('Edit Widgets…'), () => this._setEditing(!this._editing));
         menu.addAction(_('Remove Widget'), () => this._remove(entry.spec.id));
         return menu;
@@ -498,7 +493,7 @@ export default class GlassWidgetsExtension extends Extension {
             });
             this._layer.insert_child_at_index(this._scrim, 0);
             this._scrim.ease({opacity: 255, duration: 200});
-            const types = [...this._types.values()].filter(t => !t.harvis || this._sources.harvis.available);
+            const types = [...this._types.values()];
             this._gallery = new Gallery(types, {
                 onAdd: (type, size) => this._addNew(type, size),
                 onDone: () => this._setEditing(false),

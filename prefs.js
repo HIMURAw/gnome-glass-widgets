@@ -69,9 +69,5 @@ export default class GlassWidgetsPreferences extends ExtensionPreferences {
         });
         notes.add_suffix(pick);
         data.add(notes);
-
-        const harvis = new Adw.EntryRow({title: _('Harvis command (reminders, morning report, money)')});
-        settings.bind('harvis-command', harvis, 'text', Gio.SettingsBindFlags.DEFAULT);
-        data.add(harvis);
     }
 }

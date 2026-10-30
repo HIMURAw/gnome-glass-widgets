@@ -22,11 +22,6 @@
       <summary>Notes folder</summary>
       <description>The Markdown notes the Notes widget shows and adds to.</description>
     </key>
-    <key name="harvis-command" type="s">
-      <default>'harvis widgets'</default>
-      <summary>Harvis command</summary>
-      <description>Prints the JSON the Harvis widgets show (reminders, morning report, money). When it is not installed those widgets are not offered.</description>
-    </key>
     <key name="dim" type="b">
       <default>true</default>
       <summary>Step back while an app is in front</summary>

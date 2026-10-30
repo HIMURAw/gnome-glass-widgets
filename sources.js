@@ -223,68 +223,6 @@ class WeatherSource extends Source {
     }
 }
 
-// ---------- Harvis (an optional command that prints JSON) ----------
-
-// `harvis widgets` prints {reminders, morning, finance}. Without the command the Harvis
-// widgets are simply not offered; value null means "not available".
-class HarvisSource extends Source {
-    constructor(settings) {
-        super();
-        this._settings = settings;
-        this.available = null;
-        this._probe();
-    }
-
-    _argv() {
-        try {
-            const [, argv] = GLib.shell_parse_argv(this._settings.get_string('harvis-command'));
-            return argv;
-        } catch {
-            return null;
-        }
-    }
-
-    // Known before any Harvis widget is placed, so the gallery can offer them.
-    _probe() {
-        const argv = this._argv();
-        this.available = !!(argv?.length && GLib.find_program_in_path(argv[0]));
-    }
-
-    start() {
-        this.refresh();
-        this._id = every(120, () => this.refresh());
-    }
-
-    stop() {
-        this._id = clear(this._id);
-    }
-
-    refresh() {
-        const argv = this._argv();
-        if (!this.available || !argv) {
-            this.set(null);
-            return;
-        }
-        try {
-            const launcher = new Gio.SubprocessLauncher({
-                flags: Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE});
-            launcher.setenv('GLASS_WIDGETS_METERED', metered() ? '1' : '0', true);
-            const proc = launcher.spawnv(argv);
-            proc.communicate_utf8_async(null, null, (p, res) => {
-                try {
-                    const [, out] = p.communicate_utf8_finish(res);
-                    this.set(JSON.parse(out));
-                } catch {
-                    if (this.value === undefined)
-                        this.set(null);
-                }
-            });
-        } catch {
-            this.set(null);
-        }
-    }
-}
-
 // ---------- Notes (Markdown files in a folder) ----------
 
 export function expandPath(path) {
@@ -904,10 +842,6 @@ export class Sources {
 
     get weather() {
         return this._get('weather', () => new WeatherSource(this._settings));
-    }
-
-    get harvis() {
-        return this._get('harvis', () => new HarvisSource(this._settings));
     }
 
     get notes() {

@@ -18,7 +18,6 @@ and [Glass Dock](https://github.com/HIMURAw/gnome-glass-dock).
 | Notes | S, M, L | Your latest Markdown notes from a folder; + adds one |
 | System | S, M | Processor, memory and disk |
 | Batteries | S, M | This computer and Bluetooth devices that report a battery (headphones, mouse…) |
-| Reminders, Morning report, Money | | Optional: fed by a command that prints JSON (see below) |
 
 ## Using it
 
@@ -36,21 +35,8 @@ and [Glass Dock](https://github.com/HIMURAw/gnome-glass-dock).
 ## Settings
 
 Weather location (empty: guessed from the network, via wttr.in), the notes folder, frosted
-glass, stepping back behind apps, and the command for the optional widgets. Start over
+glass and stepping back behind apps. Start over
 puts the default widgets back.
-
-### The optional widgets
-
-Reminders, Morning report and Money read a JSON from a command (default `harvis widgets`,
-from the [Harvis](https://github.com/HIMURAw/Harvis) assistant). When the command is not
-installed they are not offered. The shape:
-
-```json
-{"reminders": [{"at": "2026-10-09T09:00", "text": "Call the bank"}],
- "morning": {"date": "9 October", "today": ["…"], "yesterday": ["…"], "mail": "3 new"},
- "finance": {"total": 1200, "balances": [{"name": "Cash", "amount": 300}],
-             "month": {"spent": 0, "earned": 0}, "goal": {"name": "Phone", "amount": 5000}}}
-```
 
 ## Install
 

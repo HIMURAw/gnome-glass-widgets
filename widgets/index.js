@@ -3,15 +3,13 @@ import {gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js'
 import {BatteriesWidget} from './batteries.js';
 import {CalendarWidget} from './calendar.js';
 import {ClockWidget} from './clock.js';
-import {MailWidget, NetworkWidget, PhoneWidget} from './connections.js';
-import {MarketsWidget, MorningWidget, RemindersWidget} from './harvis.js';
+import {NetworkWidget} from './connections.js';
 import {MusicWidget} from './music.js';
 import {NotesWidget} from './notes.js';
 import {SystemWidget} from './system.js';
 import {WeatherWidget} from './weather.js';
 
-// Every kind of widget the gallery offers, in its order. `harvis` ones are offered only
-// when the Harvis command is there.
+// Every kind of widget the gallery offers, in its order.
 export function widgetTypes() {
     return [
         {type: 'clock', name: _('Clock'), description: _('A watch face, or the time in big digits'),
@@ -28,17 +26,7 @@ export function widgetTypes() {
             icon: 'org.gnome.SystemMonitor-symbolic', sizes: ['small', 'medium'], make: SystemWidget},
         {type: 'batteries', name: _('Batteries'), description: _('This computer and Bluetooth devices'),
             icon: 'battery-good-symbolic', sizes: ['small', 'medium'], make: BatteriesWidget},
-        {type: 'reminders', name: _('Reminders'), description: _('What Harvis will remind you of'),
-            icon: 'alarm-symbolic', sizes: ['small', 'medium'], make: RemindersWidget, harvis: true},
-        {type: 'morning', name: _('Morning report'), description: _('Harvis’s summary of today and yesterday'),
-            icon: 'weather-clear-symbolic', sizes: ['medium', 'large'], make: MorningWidget, harvis: true},
-        {type: 'markets', name: _('Investments'), description: _('Gold, what you own and what you watch'),
-            icon: 'power-profile-performance-symbolic', sizes: ['small', 'medium', 'large'], make: MarketsWidget, harvis: true},
         {type: 'network', name: _('Network'), description: _('Speed, the connection, ping and Tailscale'),
             icon: 'network-wireless-symbolic', sizes: ['small', 'medium', 'large'], make: NetworkWidget},
-        {type: 'phone', name: _('Phone'), description: _('Its battery and notifications, through Harvis'),
-            icon: 'phone-symbolic', sizes: ['small', 'medium'], make: PhoneWidget, harvis: true},
-        {type: 'mail', name: _('Mail'), description: _('Unread and important mail, through Harvis'),
-            icon: 'mail-unread-symbolic', sizes: ['small', 'medium', 'large'], make: MailWidget, harvis: true},
     ];
 }
