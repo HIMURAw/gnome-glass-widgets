@@ -1,0 +1,74 @@
+/* fume (Smoke): the glassy dashboard Umut liked (2026-11-01). Appended (not recoloured) when the
+   colour theme is fume; rounded like cam. Dark smoked glass, darker at the top and clearing toward
+   the bottom, a warm hairline, white for what is chosen, amber for the one call to action.
+   Generated from cam.css by colour mapping, then tuned; the motion lives in motion.js. */
+
+.gwidgets-tint {
+  background-gradient-direction: vertical;
+  background-gradient-start: rgba(28, 22, 18, 0.5);
+  background-gradient-end: rgba(28, 22, 18, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 236, 214, 0.13);
+}
+
+.gwidgets-solid {
+  background-gradient-direction: none;
+  background-color: rgba(30, 24, 20, 0.92);
+}
+
+.gwidgets-widget {
+  -glass-frame-color: rgba(255, 240, 225, 0.1);
+  color: #f6f1ea;
+}
+
+.gwidgets-editing {
+  -glass-frame-color: rgba(242, 162, 92, 0.85);
+}
+
+.gwidgets-dragging {
+  -glass-frame-color: #f2a25c;
+}
+
+.gwidgets-control:hover,
+.gwidgets-add-toggle:hover,
+.gwidgets-size-chip:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.gwidgets-control-main {
+  background-color: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.gwidgets-note-button:hover,
+.gwidgets-note-row:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.gwidgets-clickable:hover {
+  -glass-frame-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Gallery */
+.gwidgets-gallery {
+  -glass-frame-color: rgba(255, 240, 225, 0.1);
+  color: #f6f1ea;
+}
+
+.gwidgets-gallery-card {
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.gwidgets-done {
+  color: #2a1708;
+  background-color: #f2a25c;
+}
+
+.gwidgets-size-chip {
+  border-radius: 999px;
+}
+
+.gwidgets-size-chip:focus {
+  box-shadow: inset 0 0 0 2px #f2a25c;
+}

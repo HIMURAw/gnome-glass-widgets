@@ -14,6 +14,7 @@ import {Sources} from './sources.js';
 import {CELL, GAP, SIZES} from './widget.js';
 import {widgetTypes} from './widgets/index.js';
 import {ThemedStylesheet} from './theme.js';
+import {conceal, reveal, revealAll, smokeOn} from './motion.js';
 
 const MARGIN = 28;
 const TOP = 64;
@@ -248,6 +249,7 @@ export default class GlassWidgetsExtension extends Extension {
             specs.forEach(spec => (spec.row -= dy));
         }
         this._settled = grid;
+        const arriving = [];
         for (const spec of specs) {
             spec.id ??= newId();
             if (!this._fits(spec, grid, spec.id)) {
@@ -256,7 +258,14 @@ export default class GlassWidgetsExtension extends Extension {
                     continue;
                 Object.assign(spec, {col: free.col, row: free.row});
             }
-            this._add(spec);
+            const entry = this._add(spec);
+            if (entry)
+                arriving.push(entry);
+        }
+        // Smoke (fume theme): the widgets come out of a blur one after another, top to bottom.
+        if (smokeOn()) {
+            arriving.sort((a, b) => a.spec.row - b.spec.row || a.spec.col - b.spec.col);
+            revealAll(arriving.map(e => e.slot), {delay: 120, step: 60, duration: 480, rise: 12});
         }
         if (!this._settings.get_string('layout'))
             this._save();
@@ -302,9 +311,13 @@ export default class GlassWidgetsExtension extends Extension {
             return;
         this._entries.delete(id);
         e.menu?.destroy();
-        e.slot.set_pivot_point(0.5, 0.5);
-        e.slot.ease({scale_x: 0.6, scale_y: 0.6, opacity: 0, duration: 160, mode: Clutter.AnimationMode.EASE_IN_QUAD,
-            onStopped: () => e.slot.destroy()});
+        if (smokeOn()) {
+            conceal(e.slot, {duration: 220, onStopped: () => e.slot.destroy()});
+        } else {
+            e.slot.set_pivot_point(0.5, 0.5);
+            e.slot.ease({scale_x: 0.6, scale_y: 0.6, opacity: 0, duration: 160, mode: Clutter.AnimationMode.EASE_IN_QUAD,
+                onStopped: () => e.slot.destroy()});
+        }
         this._save();
     }
 
@@ -341,10 +354,14 @@ export default class GlassWidgetsExtension extends Extension {
         const entry = this._add(spec);
         if (!entry)
             return;
-        entry.slot.set_pivot_point(0.5, 0.5);
-        entry.slot.set_scale(0.85, 0.85);
-        entry.slot.opacity = 0;
-        entry.slot.ease({scale_x: 1, scale_y: 1, opacity: 255, duration: 260, mode: Clutter.AnimationMode.EASE_OUT_BACK});
+        if (smokeOn()) {
+            reveal(entry.slot, {duration: 460, rise: 12});
+        } else {
+            entry.slot.set_pivot_point(0.5, 0.5);
+            entry.slot.set_scale(0.85, 0.85);
+            entry.slot.opacity = 0;
+            entry.slot.ease({scale_x: 1, scale_y: 1, opacity: 255, duration: 260, mode: Clutter.AnimationMode.EASE_OUT_BACK});
+        }
         this._save();
     }
 
